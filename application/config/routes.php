@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "users";
+$route['default_controller'] = 'connexion';
 $route['404_override'] = 'ecampus/erreur';
 
 

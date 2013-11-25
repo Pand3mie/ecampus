@@ -359,4 +359,12 @@ input[type=checkbox] {
 	z-index: 99;
  	
  }
- 
+ .error_logs{
+    font-size: 11px;
+    line-height: 4px;
+    position: relative;
+    top: -25px;
+    left: 110px;
+    margin-bottom: -26px;
+    color: red;
+ }

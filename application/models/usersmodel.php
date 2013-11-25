@@ -109,36 +109,6 @@ class Usersmodel extends CI_Model {
 
 	}
 
-	public function validCredentials($username,$password){
-
-     $this->load->library('encrypt');
-
-     $password = $this->encrypt->sha1($password);
-
-     //requête préparée, beaucoup plus sécurisé
-     $q = "SELECT * FROM users WHERE nni = ? AND pwd_users = ?";
-
-     $data = array($username,$password);
-     $q = $this->db->query($q,$data);
-
-     if($q->num_rows() > 0){
-          $r = $q->result();
-          $session_data = array('nni' => $r[0]->nni,'logged_in' => true);
-          $this->session->set_userdata($session_data);
-          return true;
-     } else {
-      return false;
-       }
- }
-
-     public function isLoggedIn()
-
-     {
-     if($this->session->userdata('logged_in'))
-     { return true; } else { return false; }
-}
-
-	
 }
 
 /* End of file usersmodel.php */

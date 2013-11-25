@@ -33,18 +33,18 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
       <div class="ruban_droit"></div>
 
       <!-- Formulaire connexion -->
-      
-        <form class="form-signin" method="POST" action="">
-            <h2 class="form-signin-heading"><img src="assets/img/logo_erdf.png" /></h2>
+        <?php echo form_open('connexion/verifylogin',array('class' => 'form-signin')); ?>
+             <h2 class="form-signin-heading"><img src="<?php img_url('logo_erdf'); ?>" /></h2><div class="error_logs"><?php echo validation_errors(); ?></div>
             <input type="text" class="input-block-level" placeholder="NNI" name="nni">
             <input type="password" class="input-block-level" placeholder="Mot de passe" name="pwd">
-            <button class="btn btn-large btn-primary" type="submit" name="connect">Connexion</button>
-           
-        </form>
+            <input class="btn btn-large btn-primary" type="submit" value="Connexion">
+        <?php echo form_close(); ?>
+
       <div class="erdf"></div>
        <a class="demandeinscription">Demande d'inscription</a>
     </div> <!-- /container -->
 </div>
+
  <div class="container" id="cache">
         <div id="fond"> 
         <!-- Formulaire connexion -->

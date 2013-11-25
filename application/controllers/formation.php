@@ -1,12 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+session_start();
 class Formation extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
+		if(!$this->session->userdata('logged_in'))
+   	{ 	redirect('connexion','refresh');} }
+      
 		
-	}
+	
 
 	//methode ajouter une formation////////////////////////////////////////////////
 	//
@@ -27,7 +30,7 @@ class Formation extends CI_Controller {
 		$submit = $this->input->post('confirm_ajouter');
 	      
 
-	            	if ( ! $this->upload->ajouter())
+	            	if (!$this->upload->data())
 			{
 				$error = array('error' => $this->upload->display_errors());
 

@@ -71,7 +71,7 @@
                             <li><a href="profils.php">Mon Profil</a></li>
                             <li><a href="groupe.php">Mon Groupe</a></li>
                             <li class="divider"></li>
-                            <li><a href="includes/deconnexion.php">D&eacute;connexion</a></li>
+                            <li><?php echo url('Deconnexion','admin/deconnexion'); ?></li>
                         </ul>
 
                     </li>
