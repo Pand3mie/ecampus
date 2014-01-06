@@ -33,7 +33,7 @@
                 <i class="icon-cog"></i>
             </a>
 
-            <a class="brand" href="<?php echo base_url(); ?>">
+            <a class="brand" href="<?php echo base_url(); ?>accueil.html">
                 CampuS <sup>1.0</sup>
             </a>        
 
@@ -77,17 +77,14 @@
                     </li>
                 </ul>
 
-               <form class="navbar-search pull-right">
-                    <input type="text" class="search-query" placeholder="Recherche">
-                </form>-->
-
-            </div><!--/.nav-collapse -->    
+             </div><!--/.nav-collapse -->    
 
         </div> <!-- /container -->
 
     </div> <!-- /navbar-inner -->
 
 </div> <!-- /navbar -->
+
 
 <div class="subnavbar">
 
@@ -103,7 +100,7 @@
                 <ul class="mainnav">
 
                     <li class="active">
-                        <a href="<?php echo base_url(); ?>">
+                        <a href="<?php echo base_url(); ?>accueil.html">
                              <i><img src="<?php echo img_url('home'); ?>"/></i>
                               <span>Accueil</span>
                         </a>        
@@ -184,7 +181,7 @@
                         </a>        
 
                         <ul class="dropdown-menu">
-                            <li><a href="./inscription.php">Gérer les inscriptions</a></li>
+                            <li><?php echo url('Gérer les inscriptions','inscription/inscription'); ?></li>
                             <li><a href="./listeinscriptions.php">Listing des inscriptions</a></li>
                        </ul>                
                    

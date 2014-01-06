@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-	session_start();
-class Ecampus extends CI_Controller {
+	
+class Accueil extends CI_Controller {
 	
 	
 	public function __construct()
@@ -18,9 +18,11 @@ class Ecampus extends CI_Controller {
 	public function index()
 	{
 	
-	$this->load->model('accueil');
-	$data['resultat'] = $this->accueil->get_all_news();
-    $this->layout->view('ecampus_accueil',$data);
+	$this->load->model('accueil_model');
+	$data['resultat'] = $this->accueil_model->get_all_news();
+	$data['vote'] = $this->accueil_model->vote();
+	//$this->output->enable_profiler(TRUE);
+	$this->layout->view('ecampus_accueil',$data);
     
   	}
 
@@ -37,5 +39,5 @@ class Ecampus extends CI_Controller {
 	/**************************************************************************/
 }
 
-/* End of file ecampus.php */
-/* Location: ./application/controllers/ecampus.php */
+/* End of file accueil.php */
+/* Location: ./application/controllers/accueil.php */

@@ -15,7 +15,7 @@ class Connexion_model extends CI_Model {
    $this -> db -> select('id_users, nni, pwd_users,nom_users,prenom_users,droits_users');
    $this -> db -> from('users');
    $this -> db -> where('nni', $nni);
-   $this -> db -> where('pwd_users', MD5($password));
+   $this -> db -> where('pwd_users', $password);
    $this -> db -> limit(1);
 
    $query = $this -> db -> get();

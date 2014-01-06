@@ -21,7 +21,10 @@ function img_url($nom)
 {
 	return base_url() . 'assets/img/' . $nom. '.png';
 }
-
+function imgjpg_url($nom)
+{
+    return base_url() . 'assets/img/' . $nom . '.jpg';
+}
 function img($nom, $alt = '', $haut = 0, $large = 0)
 {
     $image = '';

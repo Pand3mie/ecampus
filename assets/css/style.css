@@ -75,8 +75,8 @@ li:hover{
 }
 .form-signin {
     max-width: 300px;
-    padding: 0px 29px 31px;
-    margin: 50px auto 20px;
+    padding: 0px 29px 45px;
+    margin: 49px auto 20px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -111,6 +111,7 @@ li:hover{
 p.news-item-preview{
     height:40px; 
     overflow:hidden;
+    text-align: justify;
 }
 
 /* Multiselect
@@ -158,7 +159,7 @@ p.news-item-preview{
 
  .alertnews {
 
-	position: relative;
+	position: absolute;
 	top: 260px;
 	left: 330px;
 	width: 211px;
@@ -368,3 +369,10 @@ input[type=checkbox] {
     margin-bottom: -26px;
     color: red;
  }
+ .tabletd{
+width:435px;
+ }
+ .tabletr{
+
+ }
+ 

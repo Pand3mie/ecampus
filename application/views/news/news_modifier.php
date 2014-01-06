@@ -15,7 +15,7 @@
 
                     <div class="widget-content">
                         
-   <!--Formulaire d'ajout utilisateur-->      
+   <!--Formulaire d'ajout de news-->      
    <div class="control-group">
 <label class="control-label">Choix de la news :</label>
 <div class="controls">

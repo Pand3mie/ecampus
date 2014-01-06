@@ -45,7 +45,7 @@
 <div class="control-group">
 <label class="control-label"></label>
 <div class="controls">
-<?php echo anchor('../#myModal', 'Ajouter', array('role'=>'button','class'=>'btn btn-warning','data-toggle'=>'modal')) ?>
+<a data-toggle="modal" href="#myModal" class="btn btn-warning">Ajouter</a>
 
 </div>
 </div>

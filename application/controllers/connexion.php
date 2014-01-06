@@ -23,7 +23,7 @@ class Connexion extends CI_Controller {
    
 
    $this->form_validation->set_rules('nni', 'NNI', 'trim|required|xss_clean');
-   $this->form_validation->set_rules('pwd', 'Password', 'trim|required|xss_clean|callback_check_database');
+   $this->form_validation->set_rules('pwd_users', 'Password', 'trim|required|xss_clean|callback_check_database');
 
    if($this->form_validation->run() == FALSE)
    {
@@ -33,7 +33,7 @@ class Connexion extends CI_Controller {
    else
    {
      //Go to private area
-     redirect('ecampus', 'refresh');
+     redirect('accueil', 'refresh');
    }
 
    }

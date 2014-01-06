@@ -30,11 +30,11 @@ class Formation extends CI_Controller {
 		$submit = $this->input->post('confirm_ajouter');
 	      
 
-	            	if (!$this->upload->data())
+	            	if (!$submit)
 			{
 				$error = array('error' => $this->upload->display_errors());
 
-				$this->load->view('formation/formation_ajouter', $error);
+				$data['errors'] = $error;
 			}
 			else
 			{
@@ -46,8 +46,7 @@ class Formation extends CI_Controller {
 					   	 	<p><a href="'.base_url().'">Retours à l\'accueil</a></p>
 					    	</div></div>'; 
 
-				$this->load->view('formation/formation_ajouter', $data);
-			}
+						}
 	
 	}
 
@@ -168,7 +167,8 @@ class Formation extends CI_Controller {
 	public function liste()
 
 	{
-    	$this->layout->view('formation/formation_liste');
+		$data['droits'] = $this->session->userdata('droits');
+    	$this->layout->view('formation/formation_liste',$data);
 
 	}
 

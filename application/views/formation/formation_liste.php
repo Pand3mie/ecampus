@@ -17,9 +17,8 @@
                                                 <div class="media-body">
                                                     <!-- Nested media object -->
                                                     <div class="media">
-                                                         <?php if($_SESSION['droits'] >= 2){  ?> 
-                                                        <div id="<?php echo $row['id_formation']; ?>" data-statut="<?php
-                if ($row['statut_formation'] == 'disponible') {
+                                                         <?php if($droits >= 2){  ?> 
+                                                        <div id="<?php echo $row['id_formation']; ?>" data-statut="<?php if ($row['statut_formation'] == 'disponible') {
                     echo 1;
                 } else {
                     echo 0;
@@ -29,7 +28,7 @@
                                                              if ($row['statut_formation'] == 'disponible') {
                                                                  echo 'class="alert alert-success dispo" ';
                                                              } else {
-                                                                 echo 'class="alert alert-error dispo"';
+                                                                 echo 'class="alert alert-error dispo" ';
                                                              }
                                                              ?>  > <?php echo $row['statut_formation']; ?></div>
                                                         <?php }else{ ?>
@@ -52,7 +51,7 @@
                                                             
                                                             
                                                      <?php   } ?>
-                                                        <div id="statuts"></div>
+                                                        </div><div id="statuts"></div>
                                                         <p>Titre  : <span style="text-decoration: underline;font-weight: bold;"><?php echo $row['titre_formation']; ?></span></p>
                                                         <p>Référence : <?php echo $row['ref_formation']; ?></p>
                                                         <p>Mot(s) Clef(s) associé(s) :  <?php echo $row['motclef_formation']; ?></p>

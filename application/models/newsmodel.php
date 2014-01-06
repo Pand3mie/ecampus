@@ -19,7 +19,18 @@ class Newsmodel extends CI_Model {
 	public function get_news()
 	{
 
-	return $this->db->get('news')->result_array();
+	$query =  $this->db->get('news');
+		     if($query->num_rows() > 0)
+		   {
+		        
+		       return $query->result_array(); // returning rows, not row
+
+		        
+		    }
+		    else
+		    {
+		        echo 'Pas de news';
+		    }
 
 	}
 
@@ -40,7 +51,7 @@ class Newsmodel extends CI_Model {
 	{
 
 	$titre = $this->input->post('titre');
-	$contenu = $this->input->post('contenu');
+	$contenu = $this->input->post('content');
 	$data = array('titre_news' => $titre,
 				  'content_news' => $contenu);
 	$this->db->insert('news',$data);

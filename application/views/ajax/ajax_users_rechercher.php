@@ -70,7 +70,7 @@ $(":checkbox").click(function(){
                             <td><!-- Squared THREE -->
                                 <div class="controls" id="check">
                                     <label class="checkbox">
-                                        <input type="checkbox" value="<?php echo $row['id_users']; ?>" id="roundedOne" name="check[]"/></label>
+                                        <input type="checkbox" value="<?php echo $row['id_users']; ?>" name="check[]"><i class="icon-question-sign"></i></label>
                                          </div>             
 
                             </td>

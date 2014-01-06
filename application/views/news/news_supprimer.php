@@ -16,7 +16,7 @@
 
                     <div class="widget-content">
                         
-   <!--Formulaire d'ajout utilisateur--> 
+  
    <?php if ($news): ?>
           
              

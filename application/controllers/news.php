@@ -53,7 +53,7 @@ class News extends CI_Controller {
 	
 	public function modifier()
 	{
-
+	$this->load->model('newsmodel');
 	$this->layout->view('/news/news_modifier');
 
 	}
@@ -73,7 +73,7 @@ class News extends CI_Controller {
 	   			{
             	$this->newsmodel->supprimer_news($id);
             	// redirect to person list page
-        		redirect('ecampus/index','refresh');
+        		redirect('accueil/index','refresh');
             	   	}
 
 	}

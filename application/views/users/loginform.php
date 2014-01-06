@@ -3,7 +3,9 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
     echo '<h2>Application optimise pour FIREFOX Veuillez contacter l\'administrateur de l\'application ou utiliser un autre navigateur</h2>';
 } else {
     ?>
+      <meta http-equiv="content-type" content="text/html;charset=utf-8" />
        <!-- Insert Css ################################################# -->
+
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('bootstrap'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('base'); ?>" >
@@ -34,9 +36,9 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
 
       <!-- Formulaire connexion -->
         <?php echo form_open('connexion/verifylogin',array('class' => 'form-signin')); ?>
-             <h2 class="form-signin-heading"><img src="<?php img_url('logo_erdf'); ?>" /></h2><div class="error_logs"><?php echo validation_errors(); ?></div>
+             <h2 class="form-signin-heading"><img src="<?php echo img_url('logs'); ?>" style="visibility: hidden;"/></h2><div class="error_logs"><?php echo validation_errors(); ?></div>
             <input type="text" class="input-block-level" placeholder="NNI" name="nni">
-            <input type="password" class="input-block-level" placeholder="Mot de passe" name="pwd">
+            <input type="password" class="input-block-level" placeholder="Mot de passe" name="pwd_users">
             <input class="btn btn-large btn-primary" type="submit" value="Connexion">
         <?php echo form_close(); ?>
 
@@ -50,7 +52,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
         <!-- Formulaire connexion -->
       
         <form class="form-signin" method="POST" action="">
-             <h4 style="text-decoration: underline;">Demande d'inscription</h4><div id="mailto"><img src="assets/img/mailto.png"/></div>
+             <h4 style="text-decoration: underline;">Demande d'inscription</h4><div id="mailto"><img src="<?php echo img_url('mailto'); ?>" /></div>
             <p>Pour toute demande d'inscription merci d'indiquer votre NNI et votre nom</p>
             <input type="text" class="input-block-level" placeholder="Votre NNI" name="nni">
             <input type="text" class="input-block-level" placeholder="Votre Nom..." name="name">

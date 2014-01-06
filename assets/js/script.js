@@ -1,5 +1,7 @@
 $(document).ready(function(){
-  
+
+$('.choix_agent').bootstrapDualListbox();
+$('.choix_formation').bootstrapDualListbox();
 $('.demandeinscription').click(function(){
 $('#cache').slideToggle({ duration: 1000, easing: 'easeOutBounce'});
 });
