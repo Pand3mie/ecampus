@@ -14,7 +14,7 @@ class Inscription extends CI_Controller {
 
 	public function listing()
 	{
-
+	$this->layout->view('inscription/listinginscription',TRUE);
 	}
 
 }

@@ -52,6 +52,10 @@ class Users extends CI_Controller {
 		$data['formation'] = $this->usersmodel->getformation();
 		$this->load->view('ajax/ajax_details',$data);
 	}
+	public function ajouterGroupe()
+	{
+		$this->layout->view('users_ajouterGroupe');
+	}
 
 }
 

@@ -153,7 +153,7 @@
                         <ul class="dropdown-menu">
                             <li><?php echo url('Rechercher un utilisateur','users/rechercher'); ?></li>
                             <li><?php echo url('Ajouter un utilisateur','users/ajouter'); ?></li>
-                            <li><a href="./users.php?action=ajouterGroupe">Ajouter un groupe utilisateur</a></li>
+                            <li><?php echo url('Ajouter un Groupe Utilisateur', 'users/ajouterGroupe') ?></li>
                             <li><a href="./users.php?action=supprimer">Supprimer un utilisateur</a></li>
                             <li><a href="./users.php?action=supprimerGroupe">Supprimer un groupe utilisateur</a></li>
                            
@@ -168,7 +168,7 @@
                         </a>        
 
                         <ul class="dropdown-menu">
-                            <li><a href="./statistiques.php">Formations Populaires</a></li>
+                            <li><?php echo url('Formations Populaires','statistiques') ?></li>
                        </ul>                
                     </li>
                                    
@@ -182,7 +182,7 @@
 
                         <ul class="dropdown-menu">
                             <li><?php echo url('Gérer les inscriptions','inscription/inscription'); ?></li>
-                            <li><a href="./listeinscriptions.php">Listing des inscriptions</a></li>
+                            <li><?php echo url('Listing des inscriptions','inscription/listing') ?></li>
                        </ul>                
                    
                         <li class="dropdown">                 
