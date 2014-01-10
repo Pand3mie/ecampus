@@ -219,7 +219,6 @@
                     </div> <!-- /widget-header -->
 <div class="pull-right imgnews"><img src="assets/img/chart.png"/></div>
                     <div class="widget-content portlet-content">
-                    <?php var_dump($vote); ?>
                     <?php foreach ($vote as $k) { ?>
                        <p class="bot" style="font-size:9px;">Référence : <?php echo $k->ref_formation ?> || Vote de <?php echo $k->prenom_users.' '.$k->nom_users ?> le <?php echo $k->date_vote ?></p><div class="stars" data-score="<?php echo $k->vote ?>"></div><br><p style="font-size:9px;">Commentaire : <?php echo $k->commentaires ?></p>
                    <?php } ?>

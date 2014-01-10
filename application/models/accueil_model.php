@@ -12,7 +12,7 @@ class Accueil_model extends CI_Model {
 	public function get_all_news()
 	{
 		$this->db->from('news');
-		$this->db->order_by("date_news", "desc");
+		$this->db->order_by('date_news', 'desc');
 		$query = $this->db->get();
 		if($query->num_rows()>0)
         {
@@ -26,9 +26,9 @@ class Accueil_model extends CI_Model {
 
 	public function vote()
 	{
-		$ar = array("formation.ref_formation","users.nom_users","users.prenom_users","vote.date_vote","vote.commentaires","vote.vote");
-		$table = array("formation","users","vote");
-		$where = array("vote.id_users" => "users.id_users", "vote.id_formations" => "formation.id_formation");
+		$ar = array('formation.ref_formation','users.nom_users','users.prenom_users','vote.date_vote','vote.commentaires','vote.vote');
+		$table = array('formation','users','vote');
+		$where = "vote.id_users = users.id_users AND vote.id_formations = formation.id_formation";
 
 		$this->db->distinct($ar);
 		$this->db->where($where);

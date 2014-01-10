@@ -21,8 +21,8 @@ class Accueil extends CI_Controller {
 	$this->load->model('accueil_model');
 	$data['resultat'] = $this->accueil_model->get_all_news();
 	$data['vote'] = $this->accueil_model->vote();
-	//$this->output->enable_profiler(TRUE);
 	$this->layout->view('ecampus_accueil',$data);
+	//$this->output->enable_profiler(TRUE);
     
   	}
 
