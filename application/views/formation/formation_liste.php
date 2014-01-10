@@ -62,7 +62,7 @@
                                                         <div class="accordion" id="accordion2">
                                                             <div class="accordion-group">
                                                                 <div class="accordion-heading" id="collapse">
-                                                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapse_<?php echo $i; ?>" onclick="changeImage(this);"><span class="collapse_statut"><img id="image0" src="./assets/img/collapse_plus.png"/> </span>
+                                                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapse_<?php echo $i; ?>" onclick="changeImage(this);"><span class="collapse_statut"><img id="image0" src="<?php echo img_url('collapse_plus') ?>"/> </span>
                                                                         Détail(s) de la formation :
                                                                     </a>
                                                                 </div>

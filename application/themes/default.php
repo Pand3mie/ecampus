@@ -280,6 +280,13 @@
 <script src="<?php echo js_url('bootstrap-colorpicker'); ?>" type="text/javascript"></script>
 <!-- Fin d'insert javascript ############################################ -->
 <script>
+ $('.stars').raty({
+             readOnly : true,
+             score: function() {
+                      return $(this).attr('data-score');
+                     }
+             
+         });
  /////////////////////////////////////Graphique HightCharts
     // Radialize the colors
         Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
