@@ -21,6 +21,7 @@ class Formation_model extends CI_Model {
     } else {
         $statut = 'non disponible';
     }
+    $autor = $this->session->userdata('logged_in');
 	$tab = array(
    'ref_formation' => $this->input->post('refformation', TRUE),
    'titre_formation' => $this->input->post('titre_formation', TRUE),
@@ -28,9 +29,7 @@ class Formation_model extends CI_Model {
    'contenu_formation' => $this->input->post('contenu_formation', TRUE),
    'statut_formation' => $statut,
    'date_formation' => $this->input->post('date_formation', TRUE),
-   // a changer avec variable de session
-   'autor_formation' => 'test',
-   //
+   'autor_formation' => $autor['nom'].' '.$autor['prenom'],
    'niveau_formation' => $this->input->post('niveau_formation', TRUE),
    'fichierjoint' => $this->input->post('mydoc', TRUE)
 	);

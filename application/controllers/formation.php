@@ -45,7 +45,7 @@ class Formation extends CI_Controller {
 					    	<strong></strong> Votre Formation a été enregistrée.
 					   	 	<p><a href="'.base_url().'">Retours à l\'accueil</a></p>
 					    	</div></div>'; 
-
+					    	$this->output->enable_profiler(TRUE);
 						}
 	
 	}
