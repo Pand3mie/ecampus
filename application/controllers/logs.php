@@ -22,6 +22,7 @@ class Logs extends CI_Controller {
 		   if(isset($valider)){
                 $idlog =  $this->input->post('supp_logs');
                 $this->model_logs->supp_ip($idlog);
+                $this->output->enable_profiler(TRUE);
                	
             }
 
