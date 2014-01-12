@@ -1,57 +1,111 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-session_start();
+
+//session_start();
+
 class Formation extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		if(!$this->session->userdata('logged_in'))
-   	{ 	redirect('connexion','refresh');} }
-      
-		
-	
 
-	//methode ajouter une formation////////////////////////////////////////////////
-	//
+// Controle de Session
+// 		
+		if(!$this->session->userdata('logged_in'))
+   			{ 	
+   				redirect('connexion','refresh');
+   			}
+   	 }
+      
+	
 	public function ajouter()
 
 	{
+// appel model 
+		
 		$this->load->model('formation_model');
+
+
+// completion Select et passage data
+		
 		$data['fonction'] = $this->formation_model->getfunction_users();
 		$this->layout->view('formation/formation_ajouter',$data);
+		
+
+		
+//Appel fonction codeigniter upload
+		
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png';
 		$config['max_size']	= '100';
 		$config['max_width']  = '1024';
 		$config['max_height']  = '768';
-
 		$this->load->library('upload', $config);
+		
+				      
+// Validation du formulaire
 
-		$submit = $this->input->post('confirm_ajouter');
-	      
 
-	            	if (!$submit)
+		$config = array(
+               array(
+                     'field'   => 'titre_formation', 
+                     'label'   => 'Titre', 
+                     'rules'   => 'required'
+                  ),
+               array(
+                     'field'   => 'contenu_formation', 
+                     'label'   => 'Contenu', 
+                     'rules'   => 'required'
+                  ),
+               array(
+                     'field'   => 'refformation', 
+                     'label'   => 'Référence Formation', 
+                     'rules'   => 'required'
+                  )
+            );
+		
+			$this->form_validation->set_rules($config);
+
+	        if ($this->form_validation->run() == FALSE)
 			{
 				$error = array('error' => $this->upload->display_errors());
 
 				$data['errors'] = $error;
 			}
+
 			else
+
 			{
-				$data = array('upload_data' => $this->upload->data());
-				 $this->formation_model->ajouter_formation();
-	                	echo '<div class="alertnews" ><div class="alert alert-success">
-					    	<button type="button" class="close" data-dismiss="alert">&times;</button>
-					    	<strong></strong> Votre Formation a été enregistrée.
-					   	 	<p><a href="'.base_url().'">Retours à l\'accueil</a></p>
-					    	</div></div>'; 
-					    	$this->output->enable_profiler(TRUE);
+
+// Controle si Numéro formation Existe deja
+				
+				$query = $this->formation_model->ajouter_formation();
+
+					if(!$query)
+					{
+						$num = $this->input->post('refformation', TRUE);
+							echo '<div class="alertnews" ><div class="alert alert-success">
+					    		<button type="button" class="close" data-dismiss="alert">&times;</button>
+					    		<strong></strong> La Fromation '.$num.' existe deja.Merci de saisir un autre numéro
+					   	 		<p><a href="'.base_url().'">Retours à l\'accueil</a></p>
+					    		</div></div>';
+
+					}else{
+
+				 		$data = array('upload_data' => $this->upload->data());
+					    $this->formation_model->ajouter_formation();
+	                		echo '<div class="alertnews" ><div class="alert alert-success">
+					    		<button type="button" class="close" data-dismiss="alert">&times;</button>
+					    		<strong></strong> Votre Formation a été enregistrée.
+					   	 		<p><a href="'.base_url().'">Retours à l\'accueil</a></p>
+					    		</div></div>'; 
+					    	
 						}
-	
+// Fin de Controle Num Formation
+			}
+// Fin de Validation Formaulaire
 	}
 
-	//methode modifier une formation////////////////////////////////////////////////
-	//
+	
 	public function modifier()
 
 	{
@@ -59,8 +113,7 @@ class Formation extends CI_Controller {
 
 	}
 
-		//methode ajax modifier une formation////////////////////////////////////////////////
-		//
+	
 	public function ajaxmodifierformation()
 
 	{
@@ -71,8 +124,6 @@ class Formation extends CI_Controller {
 	}
 
 
-	//methode supprimer une formation////////////////////////////////////////////////
-	//
 	public function supprimer()
 
 	{
@@ -89,9 +140,7 @@ class Formation extends CI_Controller {
 		   	}
    
 	}
-
-	//methode ajax supprimer une formation////////////////////////////////////////////////
-	//
+	
 	public function ajaxsupprimer()
 
 	{
@@ -102,10 +151,6 @@ class Formation extends CI_Controller {
 
 	}
 
-
-
-	//methode recherche une formation////////////////////////////////////////////////
-	//
 	public function rechercher()
 
 	{
@@ -113,10 +158,6 @@ class Formation extends CI_Controller {
 
 	}
 
-
-
-	//methode demande une formation////////////////////////////////////////////////
-	//
 	public function demande()
 
 	{
@@ -144,8 +185,7 @@ class Formation extends CI_Controller {
 	    $this->layout->view('formation/formation_demande');
 	}
 
-	//methode choisir une formation////////////////////////////////////////////////
-	//
+	
 	public function choix()
 
 	{
@@ -153,8 +193,7 @@ class Formation extends CI_Controller {
 
 	}
 
-	//methode historique d'une formation////////////////////////////////////////////////
-	//
+
 	public function historique()
 
 	{
@@ -162,8 +201,6 @@ class Formation extends CI_Controller {
 
 	}
 
-	//methode liste d'une formation////////////////////////////////////////////////
-	//
 	public function liste()
 
 	{

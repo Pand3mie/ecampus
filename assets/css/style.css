@@ -159,10 +159,11 @@ p.news-item-preview{
 
  .alertnews {
 
-	position: absolute;
-	top: 260px;
-	left: 330px;
-	width: 211px;
+position: absolute;
+top: 260px;
+left: 619px;
+width: auto;
+z-index: 99;
  }
 
  .hide {display:none;}

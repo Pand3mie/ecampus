@@ -33,11 +33,22 @@ class Formation_model extends CI_Model {
    'niveau_formation' => $this->input->post('niveau_formation', TRUE),
    'fichierjoint' => $this->input->post('mydoc', TRUE)
 	);
+	$value = $this->input->post('refformation', TRUE);
+	$this->db->select('ref_formation');
+	$this->db->from('formation');
+	$this->db->where('ref_formation', $value);
+	$query = $this->db->get();
 
-	$this->db->insert('formation', $tab); 
+	if($query -> num_rows() == 0){
+
+	$this->db->insert('formation', $tab);
+
+	}else{
+
+	return false;
 	
 	}
-
+}
 	// List des fonctions utilisateurs
 	public function getfunction_users()
 	{

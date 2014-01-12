@@ -5,7 +5,7 @@
                             <div class="widget stacked">
                                 <div class="widget-header">
                                     <i class="icon-star"></i>
-                                    <h3>Ajouter une formation</h3>
+                                    <h3>Ajouter une formation</h3><?php echo ' '.validation_errors(); ?>
                                 </div> <!-- /widget-header -->
                                 <div class="widget-content">
                                 <?php $attributes = array('id' => 'formation'); ?>
@@ -68,7 +68,7 @@
                                 <button class="btn" value="ajouter">Annuler</button>
                                 <button type="submit" class="btn btn-warning" value="Envoyer" name="confirm_ajouter">Confirmer</button>
                                     <?php echo form_close(); ?>
-                                   
+                                                                      
                                 </div> <!-- /widget-content -->
 
                             </div> <!-- /widget -->
