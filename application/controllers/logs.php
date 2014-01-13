@@ -15,14 +15,16 @@ class Logs extends CI_Controller {
 	{
 		$this->load->model('model_logs');
 		$data['log'] = $this->model_logs->get_ip();
-		$valider = $this->input->post('valider');
 
 		$this->layout->view('logs/Vlogs',$data);
+		$check = $this->input->post('valider', TRUE);
 
-		   if(isset($valider)){
+		   if ($check == 'run'){
+
                 $idlog =  $this->input->post('supp_logs');
                 $this->model_logs->supp_ip($idlog);
-                $this->output->enable_profiler(TRUE);
+                redirect('logs', 'refresh');
+                
                	
             }
 

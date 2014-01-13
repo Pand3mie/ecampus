@@ -374,6 +374,6 @@ input[type=checkbox] {
 width:435px;
  }
  .tabletr{
-
+    vertical-align: top;
  }
  

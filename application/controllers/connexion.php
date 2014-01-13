@@ -28,11 +28,16 @@ class Connexion extends CI_Controller {
    if($this->form_validation->run() == FALSE)
    {
      //Field validation failed.  User redirected to login page
-     $this->load->view('users/loginform');
+     
+      $this->load->view('users/loginform');
    }
    else
    {
      //Go to private area
+     $users = $this->session->userdata('logged_in');
+     $id = $users['id'];
+     $this->load->model('connexion_model');
+     $this->connexion_model->logip($id);
      redirect('accueil', 'refresh');
    }
 

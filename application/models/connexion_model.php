@@ -7,6 +7,7 @@ class Connexion_model extends CI_Model {
 	public function __construct()
 	{
 		parent::__construct();
+    $this->load->helper('date');
 		
 	}
 
@@ -22,13 +23,31 @@ class Connexion_model extends CI_Model {
 
    if($query -> num_rows() == 1)
    {
-     return $query->result();
+       return $query->result();
    }
    else
    {
-     return false;
+       return false;
    }
  }
+
+ public function logip($id)
+ {
+  $ip = $this->input->ip_address(); 
+  //$date = date("Y-m-d H:i:s" );
+  $format = 'DATE_W3C';
+  $time = time();
+  $date = standard_date($format, $time);
+
+  $getquery = array (
+    'ip_logs' => $ip,
+    'time_connect' => $date,
+    'id_users' => $id
+    );
+  
+  $this->db->insert('logs', $getquery);
+  
+}
 
 }
 

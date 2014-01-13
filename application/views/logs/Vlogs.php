@@ -70,23 +70,42 @@
                     </div> <!-- /widget-header -->
 
                     <div class="widget-content">
-                        <form action="" method="POST">
+                        <?php echo form_open('logs'); ?>
                         <div class="control-group">
-                                           
-                                            <div class="controls">
-                                                <span style="margin-left:10px;margin-top:20px;">Suppression de  :</span>
-                        <select id="supp_logs" name="supp_logs" class="input-small" style="margin-top:10px;">
-                            <option value="10">10</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="all">Toutes</option>
-                        </select><span> lignes</span>
-                        
-                        <button id="valider" type="submit" class="btn btn-warning" style="margin-left:30px;" name="valider">Suppression</button>
-                                            </div>
+                             
+                            <div class="controls">
+                                <span style="margin-left:10px;margin-top:20px;">Suppression de  :</span>
+                                    <select id="supp_logs" name="supp_logs" class="input-small" style="margin-top:10px;">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="all">Toutes</option>
+                                    </select>
+                                <span> lignes</span>
+                                 <a data-toggle="modal" href="#myModal" class="btn btn-warning">Supprimer</a>       
+                            </div>
+
                         </div>
-                        </form>
-                                     
+                        
+                                                             <!-- Modal -->
+                        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                             <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 id="myModalLabel">Confirmation</h3>
+                            </div>
+
+                        <div class="modal-body">
+                            <p>Confirmer la suppression des lignes ?</p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+                            <button id="valider" type="submit" class="btn btn-warning" style="margin-left:30px;" name="valider" value="run">Suppression</button>
+                         </div>
+                         
+                        </div>
+
+                <?php echo form_close() ?>                               
         </div> <!-- /widget-content -->
 
                 </div> <!-- /widget -->	

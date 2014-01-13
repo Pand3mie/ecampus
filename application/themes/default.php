@@ -282,6 +282,8 @@
 <script>
  $('.stars').raty({
              readOnly : true,
+             half   : true,
+             size   : 24,
              score: function() {
                       return $(this).attr('data-score');
                      }
