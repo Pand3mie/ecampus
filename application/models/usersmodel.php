@@ -92,23 +92,20 @@ class Usersmodel extends CI_Model {
 	}
 
 
-	public function newuser()
+	public function newuser($picture)
 	{
-		$post = array('nni' => $this->input->post('nni', TRUE),
-			          'nom_users' => $this->input->post('nom', TRUE),
-			          'prenom_users' => $this->input->post('prenom', TRUE),
-			          'email_users' => $this->input->post('mail', TRUE),
-			          'tel_users' => $this->input->post('tel', TRUE),
-			          'categorie' => $this->input->post('user_select', TRUE)
-			          );
-			          
-		
-		$this->db->insert('users', $post);
+		$insert = array (
+  			'nom_users' => $this->input->post('nom'),
+  			'prenom_users' => $this->input->post('prenom'),
+  			'categorie' => $this->input->post('user_select'),
+  			'nni' => $this->input->post('nni'),
+  			'email_users' => $this->input->post('mail'),
+  			'picture_users' => $picture,
+  			'tel_users' => $this->input->post('tel')
+  		);
 
-
-
+  		$this->db->insert('users', $insert);
 	}
-
 }
 
 /* End of file usersmodel.php */
