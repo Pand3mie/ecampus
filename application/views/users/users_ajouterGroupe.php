@@ -55,6 +55,41 @@
 
 
                         </div>
+
+                        <div class="span6">
+                        	<div class="widget stacked">
+	                            <div class="widget-header">
+	                                <i class="icon-star"></i>
+	                                <h3>Liste des groupes</h3>
+	                            </div> <!-- /widget-header -->
+                             <div class="widget-content">
+								<table class="table table-hover">
+									<thead>
+                                   			<tr>
+                                   				<th>Categorie Groupe</th>
+                                   				<th>Trigramme Groupe</th>
+                                   				<th>Détails</th>
+                                   			</tr>
+                                   			
+                                   		</thead>
+                                   		<tbody>
+                                   			
+                                   <?php foreach($groupe as $r):?>
+										<tr>
+                                   				<td><?php echo $r['categorie_groupe']; ?></td>
+                                   				<td><?php echo $r['trig_groupe']; ?></td>
+                                   				<td><?php echo $r['details_groupe']; ?></td>
+                                   		</tr>
+                        		   <?php endforeach;?>
+                      			   	
+                                   		</tbody>
+								</table>
+
+                             </div> <!-- /widget-content -->
+
+                            </div> <!-- /widget -->	
+
+                        </div><!-- /span6 -->
                     </div>
                 </div>    
              </div>

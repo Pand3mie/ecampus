@@ -153,8 +153,8 @@
                         <ul class="dropdown-menu">
                             <li><?php echo url('Rechercher un utilisateur','users/rechercher'); ?></li>
                             <li><?php echo url('Ajouter un utilisateur','users/ajouter'); ?></li>
-                            <li><?php echo url('Ajouter un Groupe Utilisateur', 'users/ajouterGroupe') ?></li>
-                            <li><?php echo url('Supprimer un groupe utilisateur', 'users/supprimerGroupe') ?></li>
+                            <li><?php echo url('Gestion des groupes utilisateurs', 'users/ajouterGroupe') ?></li>
+                            
                            
                        </ul>                
                     </li>

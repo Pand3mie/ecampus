@@ -69,8 +69,13 @@ class Users extends CI_Controller {
 	}
 	public function ajouterGroupe()
 	{
-		$this->layout->view('users/users_ajouterGroupe');
+		
+		$this->load->model('usersmodel');
+		$data['groupe'] = $this->usersmodel->getgroupe();
+		$this->layout->view('users/users_ajouterGroupe',$data);
+
 	}
+
 
 }
 
