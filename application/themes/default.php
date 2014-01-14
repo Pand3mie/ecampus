@@ -154,8 +154,7 @@
                             <li><?php echo url('Rechercher un utilisateur','users/rechercher'); ?></li>
                             <li><?php echo url('Ajouter un utilisateur','users/ajouter'); ?></li>
                             <li><?php echo url('Ajouter un Groupe Utilisateur', 'users/ajouterGroupe') ?></li>
-                            <li><a href="./users.php?action=supprimer">Supprimer un utilisateur</a></li>
-                            <li><a href="./users.php?action=supprimerGroupe">Supprimer un groupe utilisateur</a></li>
+                            <li><?php echo url('Supprimer un groupe utilisateur', 'users/supprimerGroupe') ?></li>
                            
                        </ul>                
                     </li>

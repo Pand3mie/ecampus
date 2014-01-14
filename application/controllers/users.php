@@ -49,11 +49,11 @@ class Users extends CI_Controller {
 
 		$this->load->model('usersmodel');
 		$this->usersmodel->newuser($picture);
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 		
 
 	}
-	public function supprimer()
+	public function supprimerGroupe()
 	{
 
 
@@ -65,11 +65,11 @@ class Users extends CI_Controller {
 		$this->load->model('usersmodel');
 		$data['getid'] = $this->usersmodel->getuser();
 		$data['formation'] = $this->usersmodel->getformation();
-		$this->load->view('ajax/ajax_details',$data);
+		$this->layout->view('ajax/ajax_details',$data);
 	}
 	public function ajouterGroupe()
 	{
-		$this->layout->view('users_ajouterGroupe');
+		$this->layout->view('users/users_ajouterGroupe');
 	}
 
 }

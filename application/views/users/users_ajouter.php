@@ -22,7 +22,7 @@
                         <?php echo form_open_multipart('users/ajouter');?>
 
                             <div class="control-group">
-                                <label class="control-label">NNI</label>
+                                <label class="control-label">NNI :</label>
                                 <div class="controls">
                                     <input type="text" class="input-xlarge" id="user_nni" name="nni" value="<?php echo set_value('nni'); ?>">
                                 </div>
@@ -31,14 +31,14 @@
 
 
                             <div class="control-group">
-                                <label class="control-label">Nom</label>
+                                <label class="control-label">Nom :</label>
                                 <div class="controls">
                                     <input type="text" class="input-xlarge" id="user_name" name="nom" value="<?php echo set_value('nom'); ?>">
                                 </div>
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label">Pr&eacute;nom</label>
+                                <label class="control-label">Pr&eacute;nom :</label>
                                 <div class="controls">
                                     <input type="text" class="input-xlarge" id="user_prenom" name="prenom" value="<?php echo set_value('prenom'); ?>">
                                 </div>
@@ -47,21 +47,21 @@
 
 
                             <div class="control-group">
-                                <label class="control-label">Email</label>
+                                <label class="control-label">Email :</label>
                                 <div class="controls">
                                     <input type="text" class="input-xlarge" id="user_email" name="mail" value="<?php echo set_value('mail'); ?>">
                                 </div>
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label">T&eacute;l&eacute;phone</label>
+                                <label class="control-label">T&eacute;l&eacute;phone :</label>
                                 <div class="controls">
                                     <input type="text" class="input-xlarge" id="user_tel" name="tel" data-mask="99.99.99.99.99" value="<?php echo set_value('tel'); ?>">
                                 </div>
                             </div>            
 
                             <div class="control-group">
-                                <label class="control-label">Groupe</label>
+                                <label class="control-label">Groupe :</label>
                                 <div class="controls">
                                     <select name="user_select">
                                         <option selected>Selectionnez...</option>
