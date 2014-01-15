@@ -13,7 +13,7 @@
                     <div class="widget-header portlet-header">
                         <h3>News </h3>
                     </div> <!-- /widget-header -->
-                    <div class="pull-right imgnews"><img src="assets/img/paper.png"/></div>
+                    <div class="pull-right imgnews"><img src="<?php echo img_url('paper') ?>"/></div>
                     <div class="widget-content portlet-content">
                          <?php
                 
@@ -48,12 +48,12 @@
                     <div class="widget-header portlet-header">
                           <h3>Raccourcis</h3>
                     </div> <!-- /widget-header -->
-<div class="pull-right imgnews"><img src="assets/img/shortcut.png"/></div>
+<div class="pull-right imgnews"><img src="<?php echo img_url('shortcut') ?>"/></div>
                     <div class="widget-content portlet-content">
        <div class="accordion" id="accordion2">
               <div class="accordion-group">
                      <div class="accordion-heading" id="collapse">
-                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><span class="collapse_statut"><img id="image0" src="./assets/img/collapse_plus.png"/> </span>
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><span class="collapse_statut"><img id="image0" src="<?php echo img_url('collapse_plus') ?>"/> </span>
                                    Agence Raccordement :
                             </a> 
                      </div>
@@ -104,7 +104,7 @@
        </div>
               </div>
                        <div class="accordion-heading" id="collapse">
-                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"><span class="collapse_statut"><img id="image0" src="./assets/img/collapse_plus.png"/> </span>
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"><span class="collapse_statut"><img id="image0" src="<?php echo img_url('collapse_plus') ?>"/> </span>
                                    Ingenierie :
                             </a> 
                      </div>
@@ -155,7 +155,7 @@
        </div>
               </div>
                        <div class="accordion-heading" id="collapse">
-                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"><span class="collapse_statut"><img id="image0" src="./assets/img/collapse_plus.png"/> </span>
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"><span class="collapse_statut"><img id="image0" src="<?php echo img_url('collapse_plus') ?>"/> </span>
                                    Encradrement :
                             </a> 
                      </div>
@@ -217,7 +217,7 @@
                     <div class="widget-header portlet-header">
                             <h3>Statistiques Formation</h3>
                     </div> <!-- /widget-header -->
-<div class="pull-right imgnews"><img src="assets/img/chart.png"/></div>
+<div class="pull-right imgnews"><img src="<?php echo img_url('chart') ?>"/></div>
                     <div class="widget-content portlet-content">
                         <table>
                                 

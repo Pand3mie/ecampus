@@ -283,6 +283,7 @@
              readOnly : true,
              half   : true,
              size   : 24,
+             path   : '<?php echo base_url() ?>',
              score: function() {
                       return $(this).attr('data-score');
                      }
