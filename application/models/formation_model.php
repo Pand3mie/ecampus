@@ -13,7 +13,7 @@ class Formation_model extends CI_Model {
 
 	// Ajouter une formation
 
-	public function ajouter_formation()
+	public function ajouter_formation($picture)
 	{
 	$statut = $this->input->post('check');
     if ($statut == 1) {
@@ -31,7 +31,7 @@ class Formation_model extends CI_Model {
    'date_formation' => $this->input->post('date_formation', TRUE),
    'autor_formation' => $autor['nom'].' '.$autor['prenom'],
    'niveau_formation' => $this->input->post('niveau_formation', TRUE),
-   'fichierjoint' => $this->input->post('mydoc', TRUE)
+   'fichierjoint' => $picture
 	);
 	$value = $this->input->post('refformation', TRUE);
 	$this->db->select('ref_formation');
@@ -49,6 +49,25 @@ class Formation_model extends CI_Model {
 	
 	}
 }
+
+	public function check_formation($num)
+	{
+		$this->db->select('ref_formation');
+		$this->db->from('formation');
+		$this->db->where('ref_formation', $num);
+		$query = $this->db->get();
+
+		if($query -> num_rows() == 0){
+
+			return true;
+
+			}else{
+
+			return false;
+			
+			}
+
+	}
 	// List des fonctions utilisateurs
 	public function getfunction_users()
 	{
@@ -57,10 +76,8 @@ class Formation_model extends CI_Model {
 	return $query->result();
 	}
 
-	public function get_formation()
+	public function get_formation($id)
 	{
-
-	$id=$this->uri->segment(3);
 	return $this->db->get_where('formation', array('id_formation' => $id))->result_array();
 
 	}
@@ -81,12 +98,35 @@ class Formation_model extends CI_Model {
 	public function demandeformation($object, $message)
 	{    
 
-		$this->email->from('nicolasfouche.pro@hotmail.fr', 'Nicolas Fouché');
-		$this->email->to('nicolasfouche.pro@hotmail.fr'); 
-		$this->email->subject($object);
-		$this->email->message($message);	
-		$this->email->send();
+	$this->email->from('nicolasfouche.pro@hotmail.fr', 'Nicolas Fouché');
+	$this->email->to('nicolasfouche.pro@hotmail.fr'); 
+	$this->email->subject($object);
+	$this->email->message($message);	
+	$this->email->send();
 
+	}
+	public function modifformation()
+	{
+
+
+	$idf = $this->input->post('id_formation', TRUE);
+	$ref = $this->input->post('refformation', TRUE);
+	$titre = $this->input->post('titre_formation', TRUE);
+	$motclef = $this->input->post('mcformation', TRUE);
+	$niveau = $this->input->post('niveau_formation', TRUE);
+	$texte = stripslashes(nl2br($this->input->post('contenu_formation', TRUE)));
+	$date = $this->input->post('date_formation', TRUE);
+
+	$data = array(
+	               'ref_formation' => $ref,
+	               'titre_formation' => $titre,
+	               'motclef_formation' => $motclef,
+	               'contenu_formation' => $texte,
+	               'date_formation' => $date,
+	               'niveau_formation' => $niveau
+	            );
+	$this->db->where('id_formation', $idf);
+	$this->db->update('formation', $data); 
 	}
 
 

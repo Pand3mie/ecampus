@@ -5,7 +5,7 @@
                             <div class="widget stacked">
                                 <div class="widget-header">
                                     <i class="icon-star"></i>
-                                    <h3>Ajouter une formation</h3><?php echo ' '.validation_errors(); ?>
+                                    <h3>Ajouter une formation</h3>
                                 </div> <!-- /widget-header -->
                                 <div class="widget-content">
                                 <?php $attributes = array('id' => 'formation'); ?>

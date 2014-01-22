@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('datepicker'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('jquery-ui'); ?>">
         <!-- Fin d'insert Css ################################################ -->
+        
     </head>
 
   
@@ -33,7 +34,7 @@
                 <i class="icon-cog"></i>
             </a>
 
-            <a class="brand" href="<?php echo base_url(); ?>accueil.html">
+            <a class="brand" href="<?php echo site_url('accueil'); ?>">
                 CampuS <sup>1.0</sup>
             </a>        
 
@@ -100,7 +101,7 @@
                 <ul class="mainnav">
 
                     <li class="active">
-                        <a href="<?php echo base_url(); ?>accueil.html">
+                        <a href="<?php echo site_url('accueil'); ?>">
                              <i><img src="<?php echo img_url('home'); ?>"/></i>
                               <span>Accueil</span>
                         </a>        

@@ -32,10 +32,15 @@ class Users extends CI_Controller {
 		$this->load->model('usersmodel');
 		$data['groupe'] = $this->usersmodel->getgroupe();
 		$this->layout->view('users/users_ajouter',$data);
+		
+		$save = $this->input->post('saveUsers');
 
-		$config['upload_path'] = 'application/upload/';
+		if ($save)
+		{
+
+		$config['upload_path'] = 'application/upload/users/';
 		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '100';
+		$config['max_size']	= '1000';
 		$config['max_width']  = '1024';
 		$config['max_height']  = '768';
 		$config['file_name'] = $this->input->post('myimage', TRUE);
@@ -49,10 +54,16 @@ class Users extends CI_Controller {
 
 		$this->load->model('usersmodel');
 		$this->usersmodel->newuser($picture);
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
+		}
+		else
+		{
+			return false;
 		
+		}
 
 	}
+
 	public function supprimerGroupe()
 	{
 

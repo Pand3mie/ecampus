@@ -29,79 +29,53 @@ class Formation extends CI_Controller {
 		
 		$data['fonction'] = $this->formation_model->getfunction_users();
 		$this->layout->view('formation/formation_ajouter',$data);
-		
+		$formulaire = $this->input->post('confirm_ajouter', TRUE);
 
-		
-//Appel fonction codeigniter upload
-		
-		$config['upload_path'] = './uploads/';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '100';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
-		$this->load->library('upload', $config);
-		
-				      
-// Validation du formulaire
-
-
-		$config = array(
-               array(
-                     'field'   => 'titre_formation', 
-                     'label'   => 'Titre', 
-                     'rules'   => 'required'
-                  ),
-               array(
-                     'field'   => 'contenu_formation', 
-                     'label'   => 'Contenu', 
-                     'rules'   => 'required'
-                  ),
-               array(
-                     'field'   => 'refformation', 
-                     'label'   => 'Référence Formation', 
-                     'rules'   => 'required'
-                  )
-            );
-		
-			$this->form_validation->set_rules($config);
-
-	        if ($this->form_validation->run() == FALSE)
-			{
-				$error = array('error' => $this->upload->display_errors());
-
-				$data['errors'] = $error;
-			}
-
-			else
-
-			{
-
+		if ($formulaire)
+		{
+     
 // Controle si Numéro formation Existe deja
-				
-				$query = $this->formation_model->ajouter_formation();
+				$num = $this->input->post('refformation', TRUE);
+				$query = $this->formation_model->check_formation($num);
 
 					if(!$query)
 					{
-						$num = $this->input->post('refformation', TRUE);
+						
 							echo '<div class="alertnews" ><div class="alert alert-success">
 					    		<button type="button" class="close" data-dismiss="alert">&times;</button>
-					    		<strong></strong> La Fromation '.$num.' existe deja.Merci de saisir un autre numéro
-					   	 		<p><a href="'.base_url().'">Retours à l\'accueil</a></p>
+					    		<strong></strong> La Formation '.$num.' existe deja.Merci de saisir un autre numéro
+					   	 		<p><a href="'.site_url("accueil").'">Retours à l\'accueil</a></p>
 					    		</div></div>';
 
 					}else{
 
-				 		$data = array('upload_data' => $this->upload->data());
-					    $this->formation_model->ajouter_formation();
+						//Appel fonction codeigniter upload
+		
+						$config['upload_path'] = './upload/formation/';
+						$config['allowed_types'] = 'gif|jpg|png|pdf';
+						$config['max_size']	= '1000';
+						$config['max_width']  = '1024';
+						$config['max_height']  = '768';
+						$config['file_name'] = $this->input->post('mydoc');
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						$this->upload->set_allowed_types('*');
+				 		$this->upload->do_upload('mydoc');
+				 		$pic = $this->upload->data();
+						$picture = $pic ['file_name'];
+					    $this->formation_model->ajouter_formation($picture);
+					    $this->output->enable_profiler(TRUE);
 	                		echo '<div class="alertnews" ><div class="alert alert-success">
 					    		<button type="button" class="close" data-dismiss="alert">&times;</button>
 					    		<strong></strong> Votre Formation a été enregistrée.
-					   	 		<p><a href="'.base_url().'">Retours à l\'accueil</a></p>
+					   	 		<p><a href="'.site_url("accueil").'">Retours à l\'accueil</a></p>
 					    		</div></div>'; 
+
 					    	
 						}
-// Fin de Controle Num Formation
-			}
+
+		}
+			
 // Fin de Validation Formaulaire
 	}
 
