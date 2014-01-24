@@ -225,7 +225,7 @@
                         <tr>
                             <td class="tabletd">
                                 <blockquote>
-                                   <p class="bot" style="font-size:9px;">Référence : <?php echo $k->ref_formation ?> || Vote de <strong><?php echo $k->prenom_users.' '.$k->nom_users ?></strong><br> le <?php echo $k->date_vote ?></p>
+                                   <p class="bot" style="font-size:13px;">Référence : <?php echo $k->ref_formation ?> || Vote de <strong><?php echo $k->prenom_users.' '.$k->nom_users ?></strong><br> le <?php echo $k->date_vote ?></p>
                                    <br>
                                    <?php if ($k->commentaires == ''){?>
                                 <small>Commentaire : <cite title="Source Title">Pas de Commentaire</cite></small>
