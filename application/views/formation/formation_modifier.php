@@ -18,7 +18,7 @@
                                                                     <div class="control-group">
                                                                         <label class="control-label">Choix de la formation :</label>
                                                                         <div class="controls">
-                                                                            <select id="modif_formation" class="input-xxlarge" >
+                                                                            <select id="modif_formation" class="input-xlarge" >
                                                                                 <option>Selectionnez...</option>
                                                                                 <?php
                                                                                 $req = mysql_query("SELECT * FROM formation");
@@ -40,21 +40,10 @@
 
                            
 
-                                    <div id="modformation"></div>
-                                <?php
-                                    if (isset($_POST['confirm_modif'])) {
-                                        
-                                        $idf = $_POST['id_formation'];
-                                        $ref = $_POST['refformation'];
-                                        $titre = $_POST['titre_formation'];
-                                        $motclef = $_POST['mcformation'];
-                                        $niveau = $_POST['niveau_formation'];
-                                        $texte = stripslashes(nl2br($_POST['contenu_formation']));
-                                        $date = $_POST['date_formation'];
-                                        $mod = mysql_query("UPDATE formation SET  ref_formation = '$ref' ,titre_formation = '$titre', motclef_formation = '$motclef', contenu_formation = '$texte',date_formation = '$date', niveau_formation= '$niveau'
-                                                                              WHERE id_formation = '$idf' ");
-                                        }
-                                    ?>                  
+                                    <div id="modformation">
+                                    
+                                    </div>
+                                             
                                             </div><!-- Fin de row -->
                                             </div><!-- Fin de container -->
                                             </div><!-- Fin de main -->

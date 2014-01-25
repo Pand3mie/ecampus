@@ -52,7 +52,7 @@ input,
 button,
 select,
 textarea {
-  font-family: 'Open Sans';
+  font-family: "segoe";;
 }
 [class^="icon-"] {
   background: none\9;

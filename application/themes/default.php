@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('datepicker'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('jquery-ui'); ?>">
         <!-- Fin d'insert Css ################################################ -->
+        
     </head>
 
   
@@ -33,7 +34,7 @@
                 <i class="icon-cog"></i>
             </a>
 
-            <a class="brand" href="<?php echo base_url(); ?>accueil.html">
+            <a class="brand" href="<?php echo site_url('accueil'); ?>">
                 CampuS <sup>1.0</sup>
             </a>        
 
@@ -69,7 +70,7 @@
 
                         <ul class="dropdown-menu">
                             <li><a href="profils.php">Mon Profil</a></li>
-                            <li><a href="groupe.php">Mon Groupe</a></li>
+                            <li><?php echo url('Mon Groupe','groupes/afficher'); ?></li>
                             <li class="divider"></li>
                             <li><?php echo url('Deconnexion','admin/deconnexion'); ?></li>
                         </ul>
@@ -100,7 +101,7 @@
                 <ul class="mainnav">
 
                     <li class="active">
-                        <a href="<?php echo base_url(); ?>accueil.html">
+                        <a href="<?php echo site_url('accueil'); ?>">
                              <i><img src="<?php echo img_url('home'); ?>"/></i>
                               <span>Accueil</span>
                         </a>        
@@ -153,9 +154,8 @@
                         <ul class="dropdown-menu">
                             <li><?php echo url('Rechercher un utilisateur','users/rechercher'); ?></li>
                             <li><?php echo url('Ajouter un utilisateur','users/ajouter'); ?></li>
-                            <li><?php echo url('Ajouter un Groupe Utilisateur', 'users/ajouterGroupe') ?></li>
-                            <li><a href="./users.php?action=supprimer">Supprimer un utilisateur</a></li>
-                            <li><a href="./users.php?action=supprimerGroupe">Supprimer un groupe utilisateur</a></li>
+                            <li><?php echo url('Gestion des groupes utilisateurs', 'users/ajouterGroupe') ?></li>
+                            
                            
                        </ul>                
                     </li>
@@ -284,6 +284,7 @@
              readOnly : true,
              half   : true,
              size   : 24,
+             path   : '<?php echo base_url() ?>',
              score: function() {
                       return $(this).attr('data-score');
                      }

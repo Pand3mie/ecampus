@@ -13,7 +13,7 @@
                     <div class="widget-header portlet-header">
                         <h3>News </h3>
                     </div> <!-- /widget-header -->
-                    <div class="pull-right imgnews"><img src="assets/img/paper.png"/></div>
+                    <div class="pull-right imgnews"><img src="<?php echo img_url('paper') ?>"/></div>
                     <div class="widget-content portlet-content">
                          <?php
                 
@@ -28,7 +28,11 @@
                                             <a href="#" class="news-item-title"><?php echo $r->titre_news;?></a>
                                             <p class="news-item-preview"><?php echo $r->content_news;?></p>
                                         </div>
+<<<<<<< HEAD
                                         </blockquote>
+=======
+                                    </blockquote>
+>>>>>>> xubuntu
                                     </td>
                                     <td class="tabletr">
                                      <div class="news-item-date">
@@ -50,12 +54,12 @@
                     <div class="widget-header portlet-header">
                           <h3>Raccourcis</h3>
                     </div> <!-- /widget-header -->
-<div class="pull-right imgnews"><img src="assets/img/shortcut.png"/></div>
+<div class="pull-right imgnews"><img src="<?php echo img_url('shortcut') ?>"/></div>
                     <div class="widget-content portlet-content">
        <div class="accordion" id="accordion2">
               <div class="accordion-group">
                      <div class="accordion-heading" id="collapse">
-                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><span class="collapse_statut"><img id="image0" src="./assets/img/collapse_plus.png"/> </span>
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne"><span class="collapse_statut"><img id="image0" src="<?php echo img_url('collapse_plus') ?>"/> </span>
                                    Agence Raccordement :
                             </a> 
                      </div>
@@ -106,7 +110,7 @@
        </div>
               </div>
                        <div class="accordion-heading" id="collapse">
-                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"><span class="collapse_statut"><img id="image0" src="./assets/img/collapse_plus.png"/> </span>
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo"><span class="collapse_statut"><img id="image0" src="<?php echo img_url('collapse_plus') ?>"/> </span>
                                    Ingenierie :
                             </a> 
                      </div>
@@ -157,7 +161,7 @@
        </div>
               </div>
                        <div class="accordion-heading" id="collapse">
-                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"><span class="collapse_statut"><img id="image0" src="./assets/img/collapse_plus.png"/> </span>
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThree"><span class="collapse_statut"><img id="image0" src="<?php echo img_url('collapse_plus') ?>"/> </span>
                                    Encradrement :
                             </a> 
                      </div>
@@ -219,7 +223,7 @@
                     <div class="widget-header portlet-header">
                             <h3>Statistiques Formation</h3>
                     </div> <!-- /widget-header -->
-<div class="pull-right imgnews"><img src="assets/img/chart.png"/></div>
+<div class="pull-right imgnews"><img src="<?php echo img_url('chart') ?>"/></div>
                     <div class="widget-content portlet-content">
                         <table>
                                 
@@ -227,9 +231,13 @@
                         <tr>
                             <td class="tabletd">
                                 <blockquote>
-                                   <p class="bot" style="font-size:9px;">Référence : <?php echo $k->ref_formation ?> || Vote de <strong><?php echo $k->prenom_users.' '.$k->nom_users ?></strong> le <?php echo $k->date_vote ?></p>
+                                   <p class="bot" style="font-size:13px;">Référence : <?php echo $k->ref_formation ?> || Vote de <strong><?php echo $k->prenom_users.' '.$k->nom_users ?></strong><br> le <?php echo $k->date_vote ?></p>
                                    <br>
-                                   <small>Commentaire : <cite title="Source Title"><?php echo $k->commentaires ?></cite></small>
+                                   <?php if ($k->commentaires == ''){?>
+                                <small>Commentaire : <cite title="Source Title">Pas de Commentaire</cite></small>
+                                   <?php }else{?>
+                                <small>Commentaire : <cite title="Source Title"><?php echo $k->commentaires ?></cite></small>
+                                    <?php } ?>
                                 </blockquote>
                             </td>
 

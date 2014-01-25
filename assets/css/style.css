@@ -9,8 +9,12 @@
 root { 
     display: block;
 }
+html{
+font-family: century gothic;
+
+}
 boby{
-    font-family: "segoe";
+    font-family: century gothic;
     margin: 0;
     width: 100%; 
     height: 100%;
@@ -112,6 +116,7 @@ p.news-item-preview{
     height:40px; 
     overflow:hidden;
     text-align: justify;
+    font-size: 12px;
 }
 
 /* Multiselect
@@ -375,5 +380,6 @@ width:435px;
  }
  .tabletr{
     vertical-align: top;
+    padding-left: 35px;
+    
  }
- 
