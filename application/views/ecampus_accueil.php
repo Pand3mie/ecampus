@@ -23,10 +23,12 @@
                             <table>
                                 <tr>
                                     <td class="tabletd">
+                                    <blockquote>
                                         <div class="news-item-detail">                                      
                                             <a href="#" class="news-item-title"><?php echo $r->titre_news;?></a>
                                             <p class="news-item-preview"><?php echo $r->content_news;?></p>
                                         </div>
+                                    </blockquote>
                                     </td>
                                     <td class="tabletr">
                                      <div class="news-item-date">
