@@ -267,7 +267,7 @@ $("#refformation").val(Math.round(Math.random()*1000) +90000);
                                         var id=$(this).val();
                                         $.ajax({
                                             type:"POST",
-                                             url:"http://localhost/ecampus/index.php/formation/ajaxmodifierformation/",
+                                             url:"http://localhost/ecampus/index.php/formation/ajaxmodifierformation/"+ id,
                                             data:{'id' : id},
                                             success:function(data){
                                                 $("#modformation").html(data);

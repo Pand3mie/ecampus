@@ -14,7 +14,7 @@
                             <?php 
                             $sql = mysql_query("SELECT * FROM users,groupe WHERE categorie = id_groupe ORDER BY nom_users");
                             while ($row = mysql_fetch_array($sql)) {  ?>
-                                 <option value="<?php echo $row['id_users']; ?>"><?php echo utf8_encode($row['prenom_users'].' '.$row['nom_users'].' ||   Groupe '.$row['trig_groupe']); ?></option>
+                                 <option value="<?php echo $row['id_users']; ?>"><?php echo $row['prenom_users'].' '.$row['nom_users'].' ||   Groupe '.$row['trig_groupe']; ?></option>
                           <?php  } ?>
                             
                           
@@ -35,7 +35,7 @@
                             $auj = date('y-m-d');
                             $sqli = mysql_query("SELECT * FROM formation WHERE  statut_formation = 'disponible' AND date_formation > '$auj' ORDER BY titre_formation");
                             while ($rows = mysql_fetch_array($sqli)) {  ?>
-                                 <option value="<?php echo $rows['id_formation']; ?>"><?php echo utf8_encode('R&eacute;f :'.$rows['ref_formation'].' - '.$rows['titre_formation']); ?></option>
+                                 <option value="<?php echo $rows['id_formation']; ?>"><?php echo 'R&eacute;f :'.$rows['ref_formation'].' - '.$rows['titre_formation']; ?></option>
                           <?php  } ?>
                         </select>
                                                                            

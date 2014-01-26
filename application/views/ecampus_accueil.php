@@ -28,11 +28,11 @@
                                             <a href="#" class="news-item-title"><?php echo $r->titre_news;?></a>
                                             <p class="news-item-preview"><?php echo $r->content_news;?></p>
                                         </div>
-<<<<<<< HEAD
+
                                         </blockquote>
-=======
-                                    </blockquote>
->>>>>>> xubuntu
+
+                               
+
                                     </td>
                                     <td class="tabletr">
                                      <div class="news-item-date">
@@ -287,7 +287,7 @@
                     <div class="widget-header portlet-header">
                        <h3>Statistiques</h3>
                     </div> <!-- /widget-header -->
-
+                    <div class="pull-right imgnews"><img src="<?php echo img_url('stats') ?>"/></div>
                     <div class="widget-content portlet-content">
                         <div id="graph" style="width:100%; height:400px;"></div>
                     </div> <!-- /widget-content -->

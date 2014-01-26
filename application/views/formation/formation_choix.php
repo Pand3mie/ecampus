@@ -53,7 +53,7 @@
                                                 while ($row = mysql_fetch_array($sql)) {
                                                     $dato = date('d/m/Y',  strtotime($row['date_formation']));
                                                     ?>
-                                                <li class="drop_formation" id="entry_<?php echo $row['id_formation']; ?>"><img src="assets/img/book.png" /><?php echo 'Réf : ' . $row['ref_formation'] . '  |  ' . $row['titre_formation']; ?><span id="dato"><?php echo 'Date de cloture : '.$dato; ?></span></li>
+                                                <li class="drop_formation" id="entry_<?php echo $row['id_formation']; ?>"><img src="<?php echo base_url(); ?>assets/img/book.png" /><?php echo 'Réf : ' . $row['ref_formation'] . '  |  ' . $row['titre_formation']; ?><span id="dato"><?php echo 'Date de cloture : '.$dato; ?></span></li>
                                                 <?php } ?>
                                             </ul>
                                         </div><!-- /span4 -->

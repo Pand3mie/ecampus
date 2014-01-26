@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('dashboard'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('duallist'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('style'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo css_url('m-styles.min'); ?>">
     <!--    <link rel="stylesheet" type="text/css" href="assets/css/jqueryui/jquery-ui-1.10.2.custom.css">
          <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">-->
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('bootstrap-responsive'); ?>">

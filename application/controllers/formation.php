@@ -83,7 +83,16 @@ class Formation extends CI_Controller {
 	public function modifier()
 
 	{
-   		 $this->layout->view('formation/formation_modifier');
+		 $this->load->model('formation_model');
+		 $data['allformation'] = $this->formation_model->allformation();	
+   		 $this->layout->view('formation/formation_modifier',$data);
+   		 if ($this->input->post('confirm_modif'))
+   		 {	
+   		 	$this->load->model('formation_model');
+   		 	$this->formation_model->modifformation();
+   		 	//redirect('accueil','refresh');
+   		 	$this->output->enable_profiler(TRUE);
+   		 }
 
 	}
 
