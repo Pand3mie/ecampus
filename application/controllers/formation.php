@@ -138,6 +138,14 @@ class Formation extends CI_Controller {
 
 	{
     $this->layout->view('formation/formation_rechercher');
+	}
+
+	public function ajax_recherche()
+	{
+	$this->load->model('formation_model');
+	$value = $this->uri->segment(3);
+	$data['getValue'] = $this->formation_model->search_formation($value);
+	$this->load->view('ajax/ajax_search_formation',$data);
 
 	}
 

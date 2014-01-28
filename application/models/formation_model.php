@@ -133,6 +133,22 @@ class Formation_model extends CI_Model {
 	}
 
 
+	public function search_formation($value)
+	{
+
+		$this->db->select('*');
+		$this->db->like('motclef_formation',$value);
+		$this->db->or_like('titre_formation',$value);
+		$this->db->or_like('contenu_formation',$value);
+		$this->db->from('formation');
+		$query = $this->db->get();
+
+		return $query->result_array();
+
+	}
+
+
+
 }
 
 /* End of file formation_model.php */

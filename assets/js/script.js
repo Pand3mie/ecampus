@@ -114,9 +114,9 @@ function getSelectValue(selectId)
       var inputValues = $("#searchformations").val();
       if(inputValues.length > 1){
            $.ajax({
-           type: "GET",
-           url: "includes/ajax_search_formations.php",
-           data : 'getformation='+ inputValues, //
+           type: "POST",
+           url: "http://localhost/ecampus/index.php/formation/ajax_recherche/" + inputValues,
+           data : 'getformation =' + inputValues, //
             success: function(data){
                     $('#results_formations').html(data);         
            }
@@ -124,6 +124,7 @@ function getSelectValue(selectId)
         });
    }
   });
+   
 
         // changement de couleur bureau
         
