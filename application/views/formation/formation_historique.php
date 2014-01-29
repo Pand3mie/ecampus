@@ -9,17 +9,9 @@
                                 </div> <!-- /widget-header -->
                                 <div class="widget-content">
                                     <ul class="news-items">
-                                        <?php
-                                        $users = 2;
-                                        $_SESSION['id'] = 2;
-                                        $sql = mysql_query("
-                SELECT DISTINCT suivi_formation.id_users,suivi_formation.id_formation,suivi_formation.vote_dispo,formation.id_formation,formation.ref_formation,formation.titre_formation,formation.date_formation,formation.contenu_formation,formation.titre_formation
-                FROM suivi_formation, formation
-                WHERE suivi_formation.id_formation = formation.id_formation
-                AND suivi_formation.id_users = '$users'
-                   ");
-                                        while ($row = mysql_fetch_array($sql)) {
-                                            ?>
+                                    <?php foreach ($histo as $row): ?>
+                                        
+                                    
                                             <li>
                                                 <div class="news-item-detail">
                                                     <a href="javascript:;" class="news-item-title"  id="affichageformation" data-id="<?php echo $row['id_formation']; ?>" data-users="<?php echo $row['id_users'] ?>">R&eacute;f : <?php echo $row['ref_formation'] . ' ' . $row['titre_formation']; ?></a>&nbsp;
@@ -39,7 +31,7 @@
                                                         } else {
                                                             ?>
                                                             <br>
-                                                        <p><a  data-id="<?php echo $_SESSION['id']; ?>"  data-ref="<?php echo $row['titre_formation']; ?>" data-formation="<?php echo $row['id_formation']; ?>" class="muted pull-right" id="comment" style="font-size:10px;font-style:italic;">Votez ou laissez un commentaire...</a></p>
+                                                        <p><a  data-id="<?php echo $users; ?>"  data-ref="<?php echo $row['titre_formation']; ?>" data-formation="<?php echo $row['id_formation']; ?>" class="muted pull-right" id="comment" style="font-size:10px;font-style:italic;">Votez ou laissez un commentaire...</a></p>
                                                     <?php } ?>
                                                 </div>
                                                 <div class="news-item-date">
@@ -54,9 +46,7 @@
                                                 </div>
 
                                             </li>
-                                            <?php
-                                        }
-                                        ?>
+                                       <?php endforeach ?>
                                     </ul>
                                      <?php 
                   if(isset($_POST['voteformation'])) {

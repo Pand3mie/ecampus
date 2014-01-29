@@ -165,6 +165,56 @@ class Formation_model extends CI_Model {
 		
 	}
 
+	public function choixformation()
+	{
+		$dateC = date('Y-m-d');
+		$autor = $this->session->userdata('logged_in');
+        $utilisateur = $autor['id'];
+        $array = array('date_choix' => $dateC, 'id_users' =>  $utilisateur);
+
+		$this->db->where($array);
+		$this->db->from('choix_formation'); 
+		$query = $this->db->get();
+
+		if($query -> num_rows() == 0){
+
+			return true;
+
+			}else{
+
+			return false;
+			
+			}
+
+           
+
+	}
+
+	public function histoformation()
+	{
+
+	$autor = $this->session->userdata('logged_in');
+    $users = $autor['id'];
+    $array = array ('suivi_formation.id_users',
+	'suivi_formation.id_formation',
+	'suivi_formation.vote_dispo',
+	'formation.id_formation',
+	'formation.ref_formation',
+	'formation.titre_formation',
+	'formation.date_formation',
+	'formation.contenu_formation',
+	'formation.titre_formation');
+	$where = "suivi_formation.id_formation = formation.id_formation AND suivi_formation.id_users = '$users'" ;
+
+    $this->db->distinct();
+    $this->db->select($array);
+    $this->db->from('suivi_formation,formation');                  
+    $this->db->where($where);
+
+    $query = $this->db->get();
+    return $query->result_array();
+    }
+
 }
 
 /* End of file formation_model.php */

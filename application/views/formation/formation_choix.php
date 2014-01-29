@@ -1,10 +1,5 @@
- <?php 
- $dateC = date('Y-m-d');
-            $utilisateur = 2;
-            $controls = mysql_query("SELECT COUNT(id_choix) FROM choix_formation WHERE date_choix='$dateC' AND id_users = '$utilisateur'");
-            $count = mysql_fetch_row($controls);
-?>
-       <?php     if($count[0] > 1){?>
+
+       <?php     if(!$count){?>
                 <div class="main">
                 <div class="container">
                     <div class="span10">

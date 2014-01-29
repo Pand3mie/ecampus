@@ -187,16 +187,27 @@ class Formation extends CI_Controller {
 	
 	public function choix()
 
-	{
-    	$this->layout->view('formation/formation_choix');
+	{	$this->load->model('formation_model');
+		$data['count'] = $this->formation_model->choixformation();
+    	$this->layout->view('formation/formation_choix',$data);
+
 
 	}
 
+	public function ajax_choix_formation()
+	{
+		$this->layout->view('ajax/ajax_choix_formation');
+	}
 
 	public function historique()
 
 	{
-    	$this->layout->view('formation/formation_historique');
+		$user = $this->session->userdata('logged_in');
+		$data['users'] = $user['id'];
+		$this->load->model('formation_model');
+		$data['histo'] = $this->formation_model->histoformation();
+    	$this->layout->view('formation/formation_historique',$data);
+    	
 
 	}
 
