@@ -40,7 +40,7 @@ $('#help').tooltip();
           $(this).next("p.news-item-preview").animate({height:'40px'}, 500);
     };
   });
-  
+
   
   ////////slider pour point formation
 
@@ -124,7 +124,7 @@ function getSelectValue(selectId)
         });
    }
   });
-   
+
 
         // changement de couleur bureau
         
@@ -289,9 +289,6 @@ $("#refformation").val(Math.round(Math.random()*1000) +90000);
                                             }
                                         });
                                     });
-                          
-
-
 });
 
 

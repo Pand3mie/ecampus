@@ -38,7 +38,22 @@
                                             </div>
                                         </div>
                                         <button class="btn" value="ajouter">Annuler</button>
-                                        <button type="submit" class="btn btn-warning" value="Envoyer" name="confirm_mail">Confirmer</button>
+                                         <a data-toggle="modal" href="#myModal" class="btn btn-warning">Confirmer</a>
+
+                                        <!-- Modal -->
+                                            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h3 id="myModalLabel">Confirmation</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                            <p>Confirmer la demande de formation ?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+                                            <button type="submit" class="btn btn-warning" value="Envoyer" name="confirm_mail">Confirmer</button>
+                                            </div>
+                                            </div>
                                     </form>
 
                                 </div> <!-- /widget-content -->

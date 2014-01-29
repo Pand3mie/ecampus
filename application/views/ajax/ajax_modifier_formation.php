@@ -59,8 +59,24 @@ foreach ($id as $op) {?>
 
                                         </div>
                                         <button class="btn" value="annuler">Annuler</button>
-                                        <button type="submit" class="btn btn-warning" name="confirm_modif" onClick="return del();">Modifier</button>
-                                    </form>
+                                        <a data-toggle="modal" href="#myModal" class="btn btn-warning">Modifier</a>
+                                      
+
+                                                     <!-- Modal -->
+                                            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            <h3 id="myModalLabel">Confirmation</h3>
+                                            </div>
+                                            <div class="modal-body">
+                                            <p>Confirmer la modification ?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+                                            <button type="submit" class="btn btn-warning" value="ajouter" name="confirm_modif">Confirmer</button>
+                                            </div>
+                                            </div>
+                                        </form>
                                      <?php
 }
 ?>
@@ -74,14 +90,5 @@ foreach ($id as $op) {?>
 
                         <script>
                 $('#datecloture_modif').datepicker($.datepicker.regional[ "fr" ]);        
-                      function del()
-    {
-        var valider = confirm("Confirmer ?");
-        if (valider){
-            return TRUE;
-        }
-        else{
-            return FALSE;
-        }
-    }
+                      
                 </script>

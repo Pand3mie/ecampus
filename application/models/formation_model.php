@@ -147,7 +147,23 @@ class Formation_model extends CI_Model {
 
 	}
 
-
+	public function update_count_formation($id)
+	{
+		$this->db->where('id_formation', $id);
+		$this->db->set('nbre_vue_formation','nbre_vue_formation + 1', FALSE);
+		$this->db->update('formation');
+		return true;
+	}
+	public function formation_stars($id)
+	{
+		$this->db->select('vote,id_formations');
+		$this->db->where('id_formations', $id);
+		$this->db->from('vote');
+		$query = $this->db->get();
+		return $query->result_array();
+		
+		
+	}
 
 }
 

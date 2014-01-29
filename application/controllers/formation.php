@@ -90,8 +90,7 @@ class Formation extends CI_Controller {
    		 {	
    		 	$this->load->model('formation_model');
    		 	$this->formation_model->modifformation();
-   		 	//redirect('accueil','refresh');
-   		 	$this->output->enable_profiler(TRUE);
+   		 	redirect('accueil','refresh');
    		 }
 
 	}
@@ -149,30 +148,39 @@ class Formation extends CI_Controller {
 
 	}
 
+	public function ajax_affiche_formations()
+	{
+		$this->load->model('formation_model');
+		$id = $this->uri->segment(3);
+		$this->formation_model->update_count_formation($id);
+		$data['stars'] = $this->formation_model->formation_stars($id);
+		$data['get'] = $this->formation_model->get_formation($id);
+		$this->load->view('ajax/ajax_affiche_formations',$data);
+		
+	}
+
 	public function demande()
 
 	{
 		$mail = $this->input->post('confirm_mail');
 
-		if (isset($mail)){
+		if ($mail == 'Envoyer'){
 
 		$message = $this->input->post('message_formation', TRUE);
 		$object = $this->input->post('Objet_demande', TRUE);
 		$this->load->model('formation_model');
 		$method = $this->formation_model->demandeformation($object, $message);
 			//=====Envoi de l'e-mail.
+		redirect('accueil','refresh');
+	    
+	        //echo '    <div class="alertmail" ><div class="alert alert-success">
+	        //<button type="button" class="close" data-dismiss="alert">&times;</button>
+	        //<strong></strong> Votre message à été enregistré.
+	        //<p><a href="accueil.php">Retours à l\'accueil</a></p>
+	        //</div></div>';
 
-	    if ($method) {
-	        echo '    <div class="alertmail" ><div class="alert alert-success">
-	        <button type="button" class="close" data-dismiss="alert">&times;</button>
-	        <strong></strong> Votre message à été enregistré.
-	        <p><a href="accueil.php">Retours à l\'accueil</a></p>
-	        </div></div>';
-	    } else {
-	        echo 'Le message n\'a pu être envoyé';
 	    }
-		}
-		
+	   		
 	    $this->layout->view('formation/formation_demande');
 	}
 

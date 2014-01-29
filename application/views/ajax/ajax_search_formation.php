@@ -1,10 +1,10 @@
 <script>
 $('a').on('click', function() {
-  alert ('ok');
         var id = $(this).attr('id');
+       
              $.ajax({
-           type: "GET",
-           url: <?php echo base_url(); ?>"/ajax_affiche_formations.php",
+           type: "POST",
+           url: "<?php echo base_url(); ?>formation/ajax_affiche_formations/" + id,
            data : 'getidformation='+ id, //
             success: function(data){
                     $('#details_formation').html(data);         
