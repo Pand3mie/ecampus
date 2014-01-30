@@ -215,6 +215,40 @@ class Formation_model extends CI_Model {
     return $query->result_array();
     }
 
+    public function insert_comment()
+    {
+        	$score = $this->input->post('score', TRUE);
+            $users = $this->input->post('users', TRUE);
+            $id = $this->input->post('id', TRUE);
+            $commentaire = $this->input->post('commentaireF', TRUE);
+            $date = date('Y-m-d');
+
+            $data = array(
+            	'vote' => $score,
+            	'commentaires' => $commentaire,
+            	'id_users' => $id,
+            	'id_formations' => $users,
+            	'date_vote' => $date
+            	);
+            $this->db->insert('vote', $data);
+    }
+
+    public function update_comment()
+    {
+
+    	$users = $this->input->post('users', TRUE);
+        $id = $this->input->post('id', TRUE);
+        $data = array(
+               'vote_dispo' => '1',
+               
+            );
+        $where = "id_users = '$id' AND id_formation = '$users' ";
+		$this->db->where($where);
+		$this->db->update('suivi_formation', $data); 
+		return true;
+    	
+    }
+
 }
 
 /* End of file formation_model.php */

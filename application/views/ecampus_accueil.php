@@ -225,6 +225,7 @@
                     </div> <!-- /widget-header -->
 <div class="pull-right imgnews"><img src="<?php echo img_url('chart') ?>"/></div>
                     <div class="widget-content portlet-content">
+                        <?php if($vote){ ?>
                         <table>
                                 
                         <?php foreach ($vote as $k) { ?>
@@ -246,7 +247,12 @@
                             </td>
                             
                         </tr>
-                       <?php } ?>
+                       <?php } 
+                       }else{
+                        echo 'Pas de Vote disponible pour les Formations';
+                        echo '<br><br>';
+                        echo url('Voter ?','formation/historique');}
+                        ?>
 
                        </table>
                     

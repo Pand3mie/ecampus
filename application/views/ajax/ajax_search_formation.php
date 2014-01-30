@@ -4,7 +4,7 @@ $('a').on('click', function() {
        
              $.ajax({
            type: "POST",
-           url: "<?php echo base_url(); ?>formation/ajax_affiche_formations/" + id,
+           url: "<?php echo base_url(); ?>index.php/formation/ajax_affiche_formations/" + id,
            data : 'getidformation='+ id, //
             success: function(data){
                     $('#details_formation').html(data);         

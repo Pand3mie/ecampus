@@ -64,7 +64,7 @@ class Formation extends CI_Controller {
 				 		$pic = $this->upload->data();
 						$picture = $pic ['file_name'];
 					    $this->formation_model->ajouter_formation($picture);
-					    $this->output->enable_profiler(TRUE);
+					  
 	                		echo '<div class="alertnews" ><div class="alert alert-success">
 					    		<button type="button" class="close" data-dismiss="alert">&times;</button>
 					    		<strong></strong> Votre Formation a été enregistrée.
@@ -207,9 +207,29 @@ class Formation extends CI_Controller {
 		$this->load->model('formation_model');
 		$data['histo'] = $this->formation_model->histoformation();
     	$this->layout->view('formation/formation_historique',$data);
-    	
+    		$this->load->model('formation_model');
+		$submit = $this->input->post('voteformation');
+		//$this->output->enable_profiler(TRUE);
+		if($submit == "update"){
+		$this->formation_model->insert_comment();
+		$this->formation_model->update_comment();
+		redirect('accueil','refresh');
+
+		}
 
 	}
+
+	public function ajaxcomment()
+	{
+		$data['id'] = $this->input->post('id', TRUE);
+		$data['users'] = $this->input->post('users', TRUE);
+		$data['titre'] = $this->input->post('titre', TRUE);
+		$this->load->view('ajax/ajax_comment',$data);
+
+
+	}
+
+
 
 	public function liste()
 

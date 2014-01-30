@@ -229,12 +229,12 @@ $("#refformation").val(Math.round(Math.random()*1000) +90000);
 
                                     $('a#affichageformation').click(function(){
                                         $('#resultformation').html();
-                                        var id = $(this).attr('data-id');
-                                        var users = $(this).attr('data-users');
+                                        var ids = $(this).attr('data-id');
+                                        var user = $(this).attr('data-users');
                                         $.ajax({
-                                            type: "GET",
-                                            url: "includes/ajax_getformation.php",
-                                            data : 'id=' + id + '&users=' + users, //
+                                            type: "POST",
+                                            url: "http://localhost/ecampus/index.php/formation/getformation",
+                                            data : {id: ids,users: user}, //
                                             success: function(data){
                                                 $('#resultformation').html(data);
                                             }
@@ -250,13 +250,13 @@ $("#refformation").val(Math.round(Math.random()*1000) +90000);
                                     $('a#comment').click(function(){
                                        
                                         $('#resultformation').html();
-                                        var titre = $(this).attr("data-ref");
-                                        var id=$(this).attr("data-id");
-                                        var users = $(this).attr("data-formation");
+                                        var titres = $(this).attr("data-ref");
+                                        var ids =$(this).attr("data-id");
+                                        var user = $(this).attr("data-formation");
                                         $.ajax({
-                                            type:"GET",
-                                            url:"includes/ajax_comment.php",
-                                            data:'id=' + id + '&users=' + users + '&titre=' + titre,
+                                            type:"POST",
+                                            url:"http://localhost/ecampus/index.php/formation/ajaxcomment",
+                                            data:{id : ids, users : user, titre : titres },
                                             success:function(data){
                                                 $("#resultformation").html(data);
                                             }

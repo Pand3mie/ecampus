@@ -16,7 +16,7 @@
     <!--    <link rel="stylesheet" type="text/css" href="assets/css/jqueryui/jquery-ui-1.10.2.custom.css">
          <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">-->
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('bootstrap-responsive'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo css_url('bootstrap-wysihtml5'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo css_url('wisiwyg'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('datepicker'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('jquery-ui'); ?>">
         <!-- Fin d'insert Css ################################################ -->
@@ -278,6 +278,7 @@
 <script src="<?php echo js_url('inputmask'); ?>" type="text/javascript"></script>
 <script src="<?php echo js_url('fileupload'); ?>" type="text/javascript"></script>
 <script src="<?php echo js_url('highcharts'); ?>" type="text/javascript"></script>
+<script src="<?php echo js_url('wisiwyg'); ?>" type="text/javascript"></script>
 <script src="<?php echo js_url('bootstrap-colorpicker'); ?>" type="text/javascript"></script>
 <!-- Fin d'insert javascript ############################################ -->
 <script>
