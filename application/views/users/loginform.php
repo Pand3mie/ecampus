@@ -1,8 +1,3 @@
-<?php
-if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
-    echo '<h2>Application optimise pour FIREFOX Veuillez contacter l\'administrateur de l\'application ou utiliser un autre navigateur</h2>';
-} else {
-    ?>
       <meta http-equiv="content-type" content="text/html;charset=utf-8" />
        <!-- Insert Css ################################################# -->
 
@@ -62,7 +57,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE) {
       </div> <!-- /container -->
 </div>
    
-<?php } ?>
+
 <!-- Insert Javascript ############################################### -->
 <script src="<?php echo js_url('jquery'); ?>" type="text/javascript"></script>
 <script src="<?php echo js_url('script'); ?>" type="text/javascript"></script>

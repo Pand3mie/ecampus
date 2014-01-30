@@ -10,13 +10,20 @@ class Connexion extends CI_Controller {
 		
 	}
 
-
 	public function index()
 	{
-		$this->load->view('users/loginform');
+ $browser = get_user_browser();
+  if($browser == "firefox")
+      {
+          $this->load->view('users/loginform');
+      }
+  else 
+      {   
+          $this->load->view('ie');
+      }
+		
 	}
-
-
+ 
 	public function verifylogin()
 	{
    //This method will have the credentials validation
