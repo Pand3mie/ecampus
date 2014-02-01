@@ -212,11 +212,11 @@ $("#refformation").val(Math.round(Math.random()*1000) +90000);
                                         var statut = $(this).attr('data-statut');
                                         var id = $(this).attr('id');
                                         $.ajax({
-                                            type: "GET",
+                                            type: "POST",
                                             async: false,
                                             cache: false,
-                                            url: "includes/changestatut.php",
-                                            data : 'getidformation=' + id + '&statutinfo=' + statut, 
+                                            url: "http://localhost/ecampus/index.php/formation/changestatut",
+                                            data : {'getidformation': id,'statutinfo':statut}, 
                                             success: function(data){
                                                 $('#statut').html(data);
                                                 

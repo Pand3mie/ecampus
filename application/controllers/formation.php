@@ -233,9 +233,25 @@ class Formation extends CI_Controller {
 
 	public function liste()
 
-	{
-		$data['droits'] = $this->session->userdata('droits');
+	{	
+		$this->load->model('formation_model');
+		$data['getFormation'] = $this->formation_model->allformation();
+		$data['droits'] = 2;//$this->session->userdata('droits');
     	$this->layout->view('formation/formation_liste',$data);
+
+	}
+
+	public function changestatut()
+	{
+		$this->load->model('formation_model');
+		$this->formation_model->changestatut();
+		$statut = $this->input->post('statutinfo', TRUE);
+		redirect('formation/liste','refresh');
+		if($statut == 1){
+                echo '<div class="alert alert-success dispo">disponible</div>';
+                    }else{
+                echo '<div class="alert alert-error dispo">non disponible</div>'; }
+
 
 	}
 

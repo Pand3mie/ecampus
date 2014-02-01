@@ -249,6 +249,23 @@ class Formation_model extends CI_Model {
     	
     }
 
+    public function changestatut()
+    {
+    	$id = $this->input->post('getidformation', TRUE);
+		$statut = $this->input->post('statutinfo', TRUE);
+		 if($statut == 1){
+     		$statut = 'non disponible';
+ 		}else{
+     		$statut = 'disponible';
+		}
+		$where = "id_formation = '$id'";
+		$data = array('statut_formation' => $statut);
+
+		$this->db->where($where);
+		$this->db->update('formation',$data);
+		return true;
+    }
+
 }
 
 /* End of file formation_model.php */
