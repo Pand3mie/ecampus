@@ -234,9 +234,10 @@ class Formation extends CI_Controller {
 	public function liste()
 
 	{	
+		$user = $this->session->userdata('logged_in');
+		$data['droits'] = $user['droits'];
 		$this->load->model('formation_model');
 		$data['getFormation'] = $this->formation_model->allformation();
-		$data['droits'] = 2;//$this->session->userdata('droits');
     	$this->layout->view('formation/formation_liste',$data);
 
 	}
