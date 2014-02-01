@@ -12,8 +12,8 @@ class Connexion extends CI_Controller {
 
 	public function index()
 	{
- $browser = get_user_browser();
-  if($browser == "firefox")
+  $browser = detection_nav();
+  if($browser == "Firefox" || $browser == "Chrome")
       {
           $this->load->view('users/loginform');
       }

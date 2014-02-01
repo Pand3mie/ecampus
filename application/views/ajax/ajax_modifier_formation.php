@@ -47,7 +47,7 @@ foreach ($id as $op) {?>
                                         <div class="control-group">
                                             <label class="control-label">Contenu de la formation :</label>
                                             <div class="controls">
-                                                <textarea name="contenu_formation" id="contenu_formation" style="min-height: 200px;min-width: 500px;"><?php echo utf8_encode($op['contenu_formation']);  ?></textarea>
+                                                <textarea name="contenu_formation" id="contenu_formation" style="min-height: 200px;min-width: 95%;"><?php echo utf8_encode($op['contenu_formation']);  ?></textarea>
                                             </div>
                                         </div>
 
