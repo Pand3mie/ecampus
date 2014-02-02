@@ -188,6 +188,78 @@ class Formation_model extends CI_Model {
 			}
 	}
 
+	public function ajaxChoixFormation()
+	{
+ 
+	 $utilisateur = $this->session->userdata('logged_in');
+	 $user = $utilisateur['id'];
+ 	 $date = date('Y-m-d');
+	 parse_str($this->input->post('sort1'),$sort1); 
+	 parse_str($this->input->post('sort2'),$sort2); 
+
+ 	 $where = ("id_users = '$user' and date_choix = '$date'");
+ 	 $this->db->select('id_choix');
+ 	 $this->db->from('choix_formation');
+ 	 $this->db->where($where);
+ 	 $query = $this->db->get();
+ 	 
+ 	 if($query->num_rows == 0){
+
+			foreach($sort1['entry'] as $key => $value){
+			    	echo 'num_rows==0;sort1';
+			    $data = array(
+					      'choix_formation' => $value ,
+					      'position_choix' => $key ,
+					      'colonne_choix' => '0',
+					      'id_users' => $user,
+					      'date_choix' => $date
+					   );
+			$this->db->insert('choix_formation', $data);
+	     }
+
+     		foreach($sort2['entry'] as $key => $value){
+     				echo 'num_rows==0;sort2';
+         		$data = array(
+					      'choix_formation' => $value ,
+					      'position_choix' => $key ,
+					      'colonne_choix' => '1',
+					      'id_users' => $user,
+					      'date_choix' => $date
+					   );
+			$this->db->insert('choix_formation', $data);
+     	}
+
+	}else{
+
+			foreach($sort1['entry'] as $key => $value){
+				echo 'num_rows!=0;sort1';
+				$data = array(
+					      'position_choix' => $key,
+					      'colonne_choix' => '0'
+					   );
+
+				$where = ("choix_formation = '$value' AND id_users = '$user'");
+
+				$this->db->where($where);
+    			$this->db->update('choix_formation',$data);
+    }     
+			foreach($sort2['entry'] as $key=>$value){
+				echo 'num_rows!=0;sort2';
+    			$data = array(
+					      'position_choix' => $key,
+					      'colonne_choix' => '1'
+					   );
+
+				$where = ("choix_formation = '$value' AND id_users = '$user'");
+
+				$this->db->where($where);
+    			$this->db->update('choix_formation',$data);
+			}      
+			
+		}
+ 
+	}
+
 	public function liste_formation()
 	{
 	$date = date('Y-m-d');

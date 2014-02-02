@@ -179,7 +179,7 @@ $("#refformation").val(Math.round(Math.random()*1000) +90000);
                                            // var order1 = $('#choixformation').sortable('toArray').toString();                                       
                                            // var order2 = $('#disponibleformation').sortable('toArray').toString();
 
-                                            //alert("Formation 1:" + order1 + "\n Formation 2:" + order2);
+                                            //alert ($('#choixformation').sortable('serialize'));
                                             $.ajax({
                                                 type: "POST",
                                                 url: "http://localhost/ecampus/index.php/formation/ajax_choix_formation",

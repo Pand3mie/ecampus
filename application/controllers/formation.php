@@ -198,7 +198,10 @@ $query = $this->formation_model->check_formation($num);
 
 	public function ajax_choix_formation()
 	{
-		$this->layout->view('ajax/ajax_choix_formation');
+		$this->load->model('formation_model');
+		$this->formation_model->ajaxChoixFormation();
+		$this->output->enable_profiler(TRUE);
+		//$this->layout->view('ajax/ajax_choix_formation');
 	}
 
 	public function historique()
