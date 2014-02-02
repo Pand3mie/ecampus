@@ -35,43 +35,43 @@ class Formation extends CI_Controller {
 		{
      
 // Controle si Numéro formation Existe deja
-				$num = $this->input->post('refformation', TRUE);
-				$query = $this->formation_model->check_formation($num);
+$num = $this->input->post('refformation', TRUE);
+$query = $this->formation_model->check_formation($num);
 
-					if(!$query)
-					{
-						
-							echo '<div class="alertnews" ><div class="alert alert-success">
-					    		<button type="button" class="close" data-dismiss="alert">&times;</button>
-					    		<strong></strong> La Formation '.$num.' existe deja.Merci de saisir un autre numéro
-					   	 		<p><a href="'.site_url("accueil").'">Retours à l\'accueil</a></p>
-					    		</div></div>';
-
-					}else{
-
-						//Appel fonction codeigniter upload
+	if(!$query)
+	{
 		
-						$config['upload_path'] = './upload/formation/';
-						$config['allowed_types'] = 'gif|jpg|png|pdf';
-						$config['max_size']	= '1000';
-						$config['max_width']  = '1024';
-						$config['max_height']  = '768';
-						$config['file_name'] = $this->input->post('mydoc');
-						$this->load->library('upload', $config);
-						$this->upload->initialize($config);
-						$this->upload->set_allowed_types('*');
-				 		$this->upload->do_upload('mydoc');
-				 		$pic = $this->upload->data();
-						$picture = $pic ['file_name'];
-					    $this->formation_model->ajouter_formation($picture);
-					  
-	                		echo '<div class="alertnews" ><div class="alert alert-success">
-					    		<button type="button" class="close" data-dismiss="alert">&times;</button>
-					    		<strong></strong> Votre Formation a été enregistrée.
-					   	 		<p><a href="'.site_url("accueil").'">Retours à l\'accueil</a></p>
-					    		</div></div>'; 
+			echo '<div class="alertnews" ><div class="alert alert-success">
+	    		<button type="button" class="close" data-dismiss="alert">&times;</button>
+	    		<strong></strong> La Formation '.$num.' existe deja.Merci de saisir un autre numéro
+	   	 		<p><a href="'.site_url("accueil").'">Retours à l\'accueil</a></p>
+	    		</div></div>';
 
-					    	
+	}else{
+
+		//Appel fonction codeigniter upload
+
+		$config['upload_path'] = './upload/formation/';
+		$config['allowed_types'] = 'gif|jpg|png|pdf';
+		$config['max_size']	= '1000';
+		$config['max_width']  = '1024';
+		$config['max_height']  = '768';
+		$config['file_name'] = $this->input->post('mydoc');
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+		$this->upload->set_allowed_types('*');
+ 		$this->upload->do_upload('mydoc');
+ 		$pic = $this->upload->data();
+		$picture = $pic ['file_name'];
+	    $this->formation_model->ajouter_formation($picture);
+	  
+    		echo '<div class="alertnews" ><div class="alert alert-success">
+	    		<button type="button" class="close" data-dismiss="alert">&times;</button>
+	    		<strong></strong> Votre Formation a été enregistrée.
+	   	 		<p><a href="'.site_url("accueil").'">Retours à l\'accueil</a></p>
+	    		</div></div>'; 
+
+	    	
 						}
 
 		}
@@ -188,8 +188,10 @@ class Formation extends CI_Controller {
 	public function choix()
 
 	{	$this->load->model('formation_model');
+		$data['dispo'] = $this->formation_model->liste_formation();
 		$data['count'] = $this->formation_model->choixformation();
     	$this->layout->view('formation/formation_choix',$data);
+    	//$this->output->enable_profiler(TRUE);
 
 
 	}

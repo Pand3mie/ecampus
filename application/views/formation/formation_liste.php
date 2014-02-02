@@ -55,7 +55,7 @@
                                                         <p>Titre  : <span style="text-decoration: underline;font-weight: bold;"><?php echo $row->titre_formation; ?></span></p>
                                                         <p>Référence : <?php echo $row->ref_formation; ?></p>
                                                         <p>Mot(s) Clef(s) associé(s) :  <?php echo $row->motclef_formation; ?></p>
-                                                        <p>Vote : <span id="star"></span></p>
+                                                        <p>Vote : <span id="star" ></span></p>
                                                         <p>Nombre de vue : <?php echo $row->nbre_vue_formation; ?></p>
                                                         <p>Auteur du dépot de la formation : <?php echo $row->autor_formation; ?>
                                                         <p>Niveau Formation : <?php echo $row->niveau_formation; ?>

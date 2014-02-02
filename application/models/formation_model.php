@@ -154,6 +154,7 @@ class Formation_model extends CI_Model {
 		$this->db->update('formation');
 		return true;
 	}
+
 	public function formation_stars($id)
 	{
 		$this->db->select('vote,id_formations');
@@ -185,11 +186,30 @@ class Formation_model extends CI_Model {
 			return false;
 			
 			}
-
-           
-
 	}
 
+	public function liste_formation()
+	{
+	$date = date('Y-m-d');
+	$where = ("statut_formation = 'disponible' AND date_formation > '$date' ");
+    
+    $this->db->select('*');
+    $this->db->from('formation');
+    $this->db->where($where);
+    $query = $this->db->get();
+
+     if ($query->num_rows() > 0) 
+        { 
+            //true if there are rows in the table
+            return $query->result(); //returns an object of data
+        }
+        
+        
+        return false;
+            
+        } 
+	
+           
 	public function histoformation()
 	{
 
