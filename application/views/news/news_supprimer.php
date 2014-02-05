@@ -32,7 +32,7 @@
     
 </div>
 </div>
-   <div><a href="<?php echo base_url(); ?>">Accueil</a></div>
+   <div><a href="<?php echo site_url('accueil'); ?>">Accueil</a></div>
    <br>
    <div id="results"></div>
                     </div> <!-- /widget-content -->

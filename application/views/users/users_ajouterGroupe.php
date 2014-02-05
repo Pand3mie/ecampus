@@ -17,8 +17,9 @@
 
                                     <!--Formulaire d'ajout utilisateur-->      
 
-                                    <form class="form-horizontal" id="register" method='POST' action="#" >
-
+                                    
+                                    <?php $attributes = array('class' => 'form-horizontal', 'id' => 'register'); ?>
+                                      <?php echo form_open('users/ajouterGroupe',$attributes); ?>
                                         <div class="control-group">
                                             <label class="control-label">Intitulé du Groupe :</label>
                                             <div class="controls">
@@ -53,7 +54,7 @@
 
                             </div> <!-- /widget -->	
 
-
+                          <?php form_close(); ?>
                         </div>
 
                         <div class="span6">
@@ -93,3 +94,15 @@
                     </div>
                 </div>    
              </div>
+             <script>
+     function del()
+    {
+        var valider = confirm("Confirmer ?");
+        if (valider){
+            return TRUE;
+        }
+        else{
+            return FALSE;
+        }
+    }
+</script>

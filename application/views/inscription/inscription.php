@@ -7,18 +7,16 @@
                                     <i class="icon-star"></i>
                                     <h3>Inscriptions</h3>
                                 </div> <!-- /widget-header -->
-            <form id="formusers" action="" method="POST">
-                                               <div class="widget-content">
+                                <?php  
+                  $attributes = array('id' => 'formusers');
+                echo form_open('inscription', $attributes);
+                        ?>
+              <div class="widget-content">
                                 
                         <select multiple="multiple" size="10" name="choix_agent[]" class='choix_agent span12'>
-                            <?php 
-                            $sql = mysql_query("SELECT * FROM users,groupe WHERE categorie = id_groupe ORDER BY nom_users");
-                            while ($row = mysql_fetch_array($sql)) {  ?>
-                                 <option value="<?php echo $row['id_users']; ?>"><?php echo $row['prenom_users'].' '.$row['nom_users'].' ||   Groupe '.$row['trig_groupe']; ?></option>
-                          <?php  } ?>
-                            
-                          
-                           
+                            <?php foreach ($inscrit as $row): ?>
+                              <option value="<?php echo $row['id_users']; ?>"><?php echo $row['prenom_users'].' '.$row['nom_users'].' ||   Groupe '.$row['trig_groupe']; ?></option>
+                            <?php endforeach ?>
                         </select>
                     </div>
                 </div>
@@ -31,50 +29,30 @@
                                           <div class="widget-content">
                                    
                         <select multiple="multiple" size="10" name="choix_formation[]" class='choix_formation span12'>
-                            <?php 
-                            $auj = date('y-m-d');
-                            $sqli = mysql_query("SELECT * FROM formation WHERE  statut_formation = 'disponible' AND date_formation > '$auj' ORDER BY titre_formation");
-                            while ($rows = mysql_fetch_array($sqli)) {  ?>
-                                 <option value="<?php echo $rows['id_formation']; ?>"><?php echo 'R&eacute;f :'.$rows['ref_formation'].' - '.$rows['titre_formation']; ?></option>
-                          <?php  } ?>
+                           <?php foreach ($formation as $rows): ?>
+                              <option value="<?php echo $rows['id_formation']; ?>"><?php echo 'R&eacute;f :'.$rows['ref_formation'].' - '.$rows['titre_formation']; ?></option> 
+                           <?php endforeach ?>
                         </select>
-                                                                           
-                                        
-                                        
-                                         <button class="btn" value="annuler">Annuler</button>
-                                        <button type="submit" class="btn btn-warning"  name="inscription" id="inscription">Valider</button>
-                              <form>
+        <button class="btn" value="annuler">Annuler</button>
+        <a data-toggle="modal" href="#myModal" class="btn btn-warning">Valider</a>
+                     <!-- Modal -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Confirmation</h3>
+        </div>
+        <div class="modal-body">
+        <p>Confirmer l'inscription ?</p>
+        </div>
+        <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+        <button type="submit" class="btn btn-warning"  name="inscription" value="valide" id="inscription">Confirmer</button>
+        </div>
+        </div>    
                     </div>
                 </div>
               </div>
           </div>
+          <?php echo form_close(); ?>
 </div>
-<?php 
-if(isset($_POST['inscription'])){
-    
-    $agents = $_POST['choix_agent'];
-    $formations = $_POST['choix_formation'];
-       
-    
-    if(isset($agents) && isset($formations)){
-        $agents_count = count($agents);
-        $formation_count = count($formations);
-       
-        $requete = "";
-        $requete .= "INSERT INTO suivi_formation (id_suivi, id_formation , id_users, active)  VALUES ";
-        
-        foreach($agents as $agent){
-            foreach($formations as $formation){
-                   
-             $requete  .=  "('','$formation','$agent','1'),";
-         
-             }
-        }
-        $requete_sub = substr($requete,0,-1);
-        
-        mysql_query($requete_sub);
 
-}
-    }
- 
-?>

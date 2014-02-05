@@ -17,6 +17,10 @@ function js_url($nom)
 {
 	return base_url() . 'assets/js/' . $nom . '.js';
 }
+function upload_url($nom)
+{
+     return base_url() .'assets/upload/' . $nom;
+}
 function img_url($nom)
 {
 	return base_url() . 'assets/img/' . $nom. '.png';

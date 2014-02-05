@@ -91,6 +91,26 @@ class Usersmodel extends CI_Model {
 
 	}
 
+	public function insertGroupe()
+	{
+
+		$date = date('Y-m-d');
+		$insert = array (
+			'categorie_groupe' => $this->input->post('name_groupe'),
+			'trig_groupe' => $this->input->post('abrv'),
+			'details_groupe' => $this->input->post('detail'),
+			'date_creation_groupe' => $date
+			);
+		$this->db->insert('groupe', $insert);
+		if($this->db->affected_rows())
+		{
+			$this->db->insert_id();
+		}else{
+			return FALSE;
+		}
+		
+	}
+
 
 	public function newuser($picture)
 	{

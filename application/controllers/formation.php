@@ -35,8 +35,8 @@ class Formation extends CI_Controller {
 		{
      
 // Controle si Numéro formation Existe deja
-$num = $this->input->post('refformation', TRUE);
-$query = $this->formation_model->check_formation($num);
+		$num = $this->input->post('refformation', TRUE);
+		$query = $this->formation_model->check_formation($num);
 
 	if(!$query)
 	{

@@ -219,6 +219,7 @@ class Formation_model extends CI_Model {
 
      		foreach($sort2['entry'] as $key => $value){
      				echo 'num_rows==0;sort2';
+     				print_r($sort2['entry']);
          		$data = array(
 					      'choix_formation' => $value ,
 					      'position_choix' => $key ,

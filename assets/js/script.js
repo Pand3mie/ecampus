@@ -84,26 +84,6 @@ function getSelectValue(selectId)
         });
   });
   
-
-  
-  
-  /// Search users 
-  
-   $("#searchusers").keyup(function(){
-       $('#results_users').html('');
-      var inputValues = $("#searchusers").val();
-      if(inputValues.length > 1){
-           $.ajax({
-           type: "POST",
-           url: "http://localhost/ecampus/users/userssearch",
-           data : {'name' : inputValues}, //{'type' : type},
-            success: function(data){
-                    $('#results_users').html(data);         
-           }
-           
-        });
-   }
-  });
   
   
     /// Search Formations 

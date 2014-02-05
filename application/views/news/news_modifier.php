@@ -39,7 +39,7 @@
     <?php } ?>
 </div>
 </div>
-   <div><a href="accueil.php">Accueil</a></div>
+   <div><a href="<?php echo site_url('accueil'); ?>">Accueil</a></div>
    <br>
    <div id="results"></div>
                     </div> <!-- /widget-content -->

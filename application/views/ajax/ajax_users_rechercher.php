@@ -8,7 +8,7 @@ $(":checkbox").click(function(){
          position =  position.concat($(this).val());
                 $.ajax({
            type: "POST",
-           url: "<?php echo base_url(); ?>users/details",
+           url: "<?php echo site_url('users/details'); ?>",
            data : 'getid='+position, //
             success: function(data){
                     $('#details_users').html(data);         

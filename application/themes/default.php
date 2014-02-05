@@ -21,6 +21,21 @@
         <link rel="stylesheet" type="text/css" href="<?php echo css_url('jquery-ui'); ?>">
         <!-- Fin d'insert Css ################################################ -->
         
+        <!-- Insert Javascript ############################################### -->
+        <script src="<?php echo js_url('jquery'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('script'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('raty'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('jqueryui'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('datepickerFr'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('duallist'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('bootstrap'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('holder'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('inputmask'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('fileupload'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('highcharts'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('wisiwyg'); ?>" type="text/javascript"></script>
+        <script src="<?php echo js_url('bootstrap-colorpicker'); ?>" type="text/javascript"></script>
+        <!-- Fin d'insert javascript ############################################ -->
     </head>
 
   
@@ -262,25 +277,7 @@
     <div id="conteneur">
         <?php echo $output; ?>
     </div>
-    
 
-
-
-<!-- Insert Javascript ############################################### -->
-<script src="<?php echo js_url('jquery'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('script'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('raty'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('jqueryui'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('datepickerFr'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('duallist'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('bootstrap'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('holder'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('inputmask'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('fileupload'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('highcharts'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('wisiwyg'); ?>" type="text/javascript"></script>
-<script src="<?php echo js_url('bootstrap-colorpicker'); ?>" type="text/javascript"></script>
-<!-- Fin d'insert javascript ############################################ -->
 <script>
  $('.stars').raty({
              readOnly : true,

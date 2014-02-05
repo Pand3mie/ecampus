@@ -76,7 +76,7 @@
                             <div class="control-group">
                                 <label class="control-label"></label>
                                 <div class="controls">
-                                    <button type="submit" class="btn btn-warning" name="saveUsers">Ajouter</button>
+                                 <a data-toggle="modal" href="#myModal" class="btn btn-warning">Ajouter</a>  
                                 </div>
                             </div>
                      
@@ -110,7 +110,21 @@
                 </div>
 
                 </div><!-- /span6 -->
-            </form>         
+  <!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Confirmation</h3>
+    </div>
+<div class="modal-body">
+    <p>Confirmer l'utilisateur ?</p>
+</div>
+<div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Annuler</button>
+    <button type="submit" class="btn btn-warning" name="saveUsers">Ajouter</button>
+</div>
+</div>
+            <?php echo form_close(); ?>         
         </div> <!-- /row -->
 
     </div> <!-- /container -->

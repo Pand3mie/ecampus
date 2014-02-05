@@ -5,18 +5,18 @@
     <li class="media">
     <a class="pull-left" href="">
    <?php if($requete['picture_users'] == ''){ ?>
-    <img class="media-object" data-src="assets/js/holder.js/132x170" />
+    <img class="media-object" src="<?php echo base_url(); ?>assets/holder.js/132x170">
          
          <?php
          
          }else{?>
-         <?php $uri = base_url(); ?>
-             <img alt="" <?php fctaffichimage(($uri.'assets/upload/'.$requete['picture_users']),132,170) ?> />
+         
+             <img alt="" <?php fctaffichimage(upload_url($requete['picture_users']),132,170); ?> />
              
         <?php } ?>
     </a>
     <div class="media-body">
-    <h4 class="media-heading" style="text-decoration: underline"><?php echo utf8_encode($requete['nom_users'].' '.$requete['prenom_users']); ?></h4>
+    <h4 class="media-heading" style="text-decoration: underline"><?php echo $requete['nom_users'].' '.$requete['prenom_users']; ?></h4>
         <!-- Nested media object -->
     <div class="media">
         <p>NNI : <?php echo $requete['nni']; ?></p>
