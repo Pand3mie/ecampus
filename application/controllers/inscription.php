@@ -32,8 +32,9 @@ class Inscription extends CI_Controller {
 
 	public function listing()
 	{
-	$tri = $this->input->post('tri_formation');	
-	$data['triData'] = $this->inscription_model->tri_formation($tri);
+	$arg = $this->input->post('tri_formation');	
+	
+	$data['triData'] = $this->inscription_model->tri_formation($arg);
 	$this->layout->view('inscription/listinginscription',$data);
 	//$this->output->enable_profiler(TRUE);
 	}

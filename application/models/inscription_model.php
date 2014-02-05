@@ -60,13 +60,13 @@ class Inscription_model extends CI_Model {
         
     }
 
-    public function tri_formation($tri)
+    public function tri_formation($arg)
     {
         
         $date = date('y-m-d');
 
         $select = ("A.id_users,A.id_formation, B.id_users, B.nom_users,B.prenom_users,B.nni,c.titre_formation,c.date_formation, d.categorie_groupe,c.ref_formation");
-        $where = ("A.id_users = B.id_users AND C.id_formation = A.id_formation AND D.id_groupe = B.categorie AND date_formation > '$date' ORDER BY '$tri'");
+        $where = ("A.id_users = B.id_users AND C.id_formation = A.id_formation AND D.id_groupe = B.categorie AND date_formation > $date ORDER BY $arg DESC");
 
         $this->db->from('suivi_formation AS A');
         $this->db->from('users AS B');
@@ -75,8 +75,7 @@ class Inscription_model extends CI_Model {
         $this->db->where($where);
         $query = $this->db->get();
 
-        
-            return $query->result_array();
+        return $query->result_array();
    }
  
 }
