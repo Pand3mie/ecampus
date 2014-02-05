@@ -25,7 +25,7 @@
                                         </select> 
 
                                         <span id="wait_1" style="display: none;">
-                                            <img alt="Chargement..." src="assets/img/ajax-loader.gif"/>
+                                            <img src=" <?php echo img_gif('ajax-loader'); ?>"  alt="Chargement..."  />
                                         </span>
                                         <span id="result_1" style="display: none;"></span> 
 

@@ -5,11 +5,12 @@ class Inscription extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('inscription_model');
 	}
 
 	public function index()
 	{
-		$this->load->model('inscription_model');
+		
 		$data['inscrit'] = $this->inscription_model->get_inscrit();
 		$data['formation'] = $this->inscription_model->select_formation();
 		$this->layout->view('inscription/inscription',$data);
@@ -31,7 +32,10 @@ class Inscription extends CI_Controller {
 
 	public function listing()
 	{
-	$this->layout->view('inscription/listinginscription',TRUE);
+	$tri = $this->input->post('tri_formation');	
+	$data['triData'] = $this->inscription_model->tri_formation($tri);
+	$this->layout->view('inscription/listinginscription',$data);
+	//$this->output->enable_profiler(TRUE);
 	}
 
 }

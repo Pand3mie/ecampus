@@ -25,6 +25,10 @@ function img_url($nom)
 {
 	return base_url() . 'assets/img/' . $nom. '.png';
 }
+function img_gif($nom)
+{
+    return base_url() . 'assets/img/' . $nom. '.gif';
+}
 function imgjpg_url($nom)
 {
     return base_url() . 'assets/img/' . $nom . '.jpg';
