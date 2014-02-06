@@ -12,6 +12,11 @@ class Statistiques extends CI_Controller {
 		$this->layout->view('statistiques/statistiques',TRUE);
 	}
 
+	public function test()
+	{
+		$this->load->view('statistiques/func');
+	}
+
 }
 
 /* End of file statistiques.php */
