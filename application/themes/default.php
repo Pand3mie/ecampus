@@ -37,14 +37,17 @@
         <script src="<?php echo js_url('bootstrap-colorpicker'); ?>" type="text/javascript"></script>
         <!-- Fin d'insert javascript ############################################ -->
     </head>
+    
+    <?php foreach ($color as $colori): ?>
+        <body style="background-color:<?php echo $colori['color']; ?>">
+    <?php endforeach ?>
+    
+<div id="fixe">
+    <div class="navbar navbar-inverse navbar-fixed-top">
 
-  
-          <div id="fixe">
-<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
 
-    <div class="navbar-inner">
-
-        <div class="container">
+            <div class="container">
 
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <i class="icon-cog"></i>
@@ -230,7 +233,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>
                 <h3>Configuration du bureau</h3>
      </div>
-        <form action="" method="GET" >
+        <?php echo form_open('accueil'); ?>
     <div class="modal-body">
         <p><img src="<?php echo img_url('font_plus'); ?>" />&nbsp;Augmenter la taille de la police</p>
         <img src="<?php echo img_url('pinceau'); ?>" />&nbsp;Changer la couleur du bureau
@@ -244,9 +247,9 @@
     
         <div class="modal-footer">
             <button class="btn">Fermer</button>
-            <button type="submit" class="btn btn-primary" id="pushColor" name="changeColors">Appliquer les changements</button>
+            <button type="submit" class="btn btn-primary" id="pushColor" name="changeColors" value="rgb" >Appliquer les changements</button>
         </div>
-        </form>
+        <?php echo form_close(); ?>
     </div>
 
 <!-- /fin de modal bureau -->
@@ -277,7 +280,8 @@
     <div id="conteneur">
         <?php echo $output; ?>
     </div>
-
+</body>
+</html>
 <script>
  $('.stars').raty({
              readOnly : true,

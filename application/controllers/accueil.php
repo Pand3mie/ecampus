@@ -20,8 +20,19 @@ class Accueil extends CI_Controller {
 	
 	$this->load->model('accueil_model');
 	$data['resultat'] = $this->accueil_model->get_all_news();
+	$data['color'] = $this->accueil_model->getColor();
 	$data['vote'] = $this->accueil_model->vote();
 	$this->layout->view('ecampus_accueil',$data);
+	//$this->output->enable_profiler(TRUE);
+	$getcolor = $this->input->post('changeColors');
+
+		if($getcolor == "rgb")
+		{
+
+			$this->accueil_model->insertColor();
+			redirect('accueil','refresh');
+		}
+
 	//$this->output->enable_profiler(TRUE);
     
   	}

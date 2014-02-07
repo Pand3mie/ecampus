@@ -14,6 +14,7 @@ class Formation extends CI_Controller {
    			{ 	
    				redirect('connexion','refresh');
    			}
+   			
    	 }
       
 	
@@ -21,9 +22,9 @@ class Formation extends CI_Controller {
 
 	{
 // appel model 
-		
+		$data = $this->color->background();
 		$this->load->model('formation_model');
-
+		
 
 // completion Select et passage data
 		
@@ -83,6 +84,7 @@ class Formation extends CI_Controller {
 	public function modifier()
 
 	{
+		$data = $this->color->background();
 		 $this->load->model('formation_model');
 		 $data['allformation'] = $this->formation_model->allformation();	
    		 $this->layout->view('formation/formation_modifier',$data);
@@ -99,6 +101,7 @@ class Formation extends CI_Controller {
 	public function ajaxmodifierformation()
 
 	{
+		$data = $this->color->background();
 		$this->load->model('formation_model');
 		$id = $this->uri->segment(3);
 		$data['id'] = $this->formation_model->get_formation($id);
@@ -109,6 +112,7 @@ class Formation extends CI_Controller {
 	public function supprimer()
 
 	{
+		$data = $this->color->background();
 		$this->load->model('formation_model');
 		$data['formation'] = $this->formation_model->formation();
 		$this->layout->view('formation/formation_supprimer',$data);
@@ -126,6 +130,7 @@ class Formation extends CI_Controller {
 	public function ajaxsupprimer()
 
 	{
+		$data = $this->color->background();
 		$this->load->model('formation_model');
 		$id = $this->uri->segment(3);
 		$data['get'] = $this->formation_model->get_formation($id);
@@ -136,11 +141,13 @@ class Formation extends CI_Controller {
 	public function rechercher()
 
 	{
-    $this->layout->view('formation/formation_rechercher');
+	$data = $this->color->background();
+    $this->layout->view('formation/formation_rechercher',$data);
 	}
 
 	public function ajax_recherche()
 	{
+	$data = $this->color->background();
 	$this->load->model('formation_model');
 	$value = $this->uri->segment(3);
 	$data['getValue'] = $this->formation_model->search_formation($value);
@@ -150,6 +157,7 @@ class Formation extends CI_Controller {
 
 	public function ajax_affiche_formations()
 	{
+		$data = $this->color->background();
 		$this->load->model('formation_model');
 		$id = $this->uri->segment(3);
 		$this->formation_model->update_count_formation($id);
@@ -162,6 +170,7 @@ class Formation extends CI_Controller {
 	public function demande()
 
 	{
+		$data = $this->color->background();
 		$mail = $this->input->post('confirm_mail');
 
 		if ($mail == 'Envoyer'){
@@ -181,13 +190,15 @@ class Formation extends CI_Controller {
 
 	    }
 	   		
-	    $this->layout->view('formation/formation_demande');
+	    $this->layout->view('formation/formation_demande',$data);
 	}
 
 	
 	public function choix()
 
-	{	$this->load->model('formation_model');
+	{	
+		$data = $this->color->background();
+		$this->load->model('formation_model');
 		$data['dispo'] = $this->formation_model->liste_formation();
 		$data['count'] = $this->formation_model->choixformation();
     	$this->layout->view('formation/formation_choix',$data);
@@ -198,6 +209,7 @@ class Formation extends CI_Controller {
 
 	public function ajax_choix_formation()
 	{
+		$data = $this->color->background();
 		$this->load->model('formation_model');
 		$this->formation_model->ajaxChoixFormation();
 		$this->output->enable_profiler(TRUE);
@@ -207,6 +219,7 @@ class Formation extends CI_Controller {
 	public function historique()
 
 	{
+		$data = $this->color->background();
 		$user = $this->session->userdata('logged_in');
 		$data['users'] = $user['id'];
 		$this->load->model('formation_model');
@@ -226,6 +239,7 @@ class Formation extends CI_Controller {
 
 	public function ajaxcomment()
 	{
+		$data = $this->color->background();
 		$data['id'] = $this->input->post('id', TRUE);
 		$data['users'] = $this->input->post('users', TRUE);
 		$data['titre'] = $this->input->post('titre', TRUE);
@@ -239,6 +253,7 @@ class Formation extends CI_Controller {
 	public function liste()
 
 	{	
+		$data = $this->color->background();
 		$user = $this->session->userdata('logged_in');
 		$data['droits'] = $user['droits'];
 		$this->load->model('formation_model');
@@ -249,6 +264,7 @@ class Formation extends CI_Controller {
 
 	public function changestatut()
 	{
+		$data = $this->color->background();
 		$this->load->model('formation_model');
 		$this->formation_model->changestatut();
 		$statut = $this->input->post('statutinfo', TRUE);
